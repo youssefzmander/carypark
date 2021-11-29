@@ -1085,6 +1085,9 @@
                                 <rect key="frame" x="346" y="826" width="30" height="19"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="next"/>
+                                <connections>
+                                    <segue destination="9Sh-Sf-9fd" kind="show" id="UPu-ey-vUi"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="output-onlinepngtools (3)" translatesAutoresizingMaskIntoConstraints="NO" id="Ftx-9d-ien">
                                 <rect key="frame" x="52" y="239" width="302" height="241"/>
@@ -1095,9 +1098,6 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="lUQ-v4-QBW"/>
-                    <connections>
-                        <segue destination="9Sh-Sf-9fd" kind="show" id="vsa-uv-czw"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZE3-4n-BD5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1131,6 +1131,9 @@
                                 <rect key="frame" x="331" y="791" width="32" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Next"/>
+                                <connections>
+                                    <segue destination="ngx-wb-QTO" kind="show" id="SRB-KF-tTQ"/>
+                                </connections>
                             </button>
                             <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" currentPage="1" translatesAutoresizingMaskIntoConstraints="NO" id="Q93-TX-FVC">
                                 <rect key="frame" x="131" y="675" width="123" height="28"/>
@@ -1143,9 +1146,6 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="S9n-YC-Ecd"/>
-                    <connections>
-                        <segue destination="ngx-wb-QTO" kind="show" id="AcE-32-ZoQ"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uT1-ON-gK9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1266,11 +1266,6 @@
                                 <rect key="frame" x="232" y="715" width="162" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </stackView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1ks-dm-N67" userLabel="DELETE_THIS_VIEW">
-                                <rect key="frame" x="106" y="186" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Ipf-fg-HqF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1286,7 +1281,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cXi-Cp-oKa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="658" y="-1574"/>
+            <point key="canvasLocation" x="657.97101449275362" y="-1574.3303571428571"/>
         </scene>
         <!--Forgot Password View-->
         <scene sceneID="8Ze-zh-Kyg">
@@ -1318,11 +1313,6 @@
                                     <action selector="sendAction:" destination="l2a-xm-ni2" eventType="touchUpInside" id="kuO-gy-Yuz"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kc2-pE-W7T" userLabel="DELETE_THIS_VIEW">
-                                <rect key="frame" x="85" y="152" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Pkb-Co-ize"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1386,11 +1376,6 @@
                                     <action selector="reset:" destination="USj-Pm-Ubh" eventType="touchUpInside" id="Cmv-A1-0rK"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ibr-gH-q6v" userLabel="DELETE_THIS_VIEW">
-                                <rect key="frame" x="87" y="160" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="uqJ-YK-Pp0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1460,11 +1445,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q9X-qx-lAA" userLabel="DELETE_THIS_VIEW">
-                                <rect key="frame" x="95" y="161" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tkj-SX-vnw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1581,11 +1561,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="daX-Iv-ZXN" userLabel="DELETE_THIS_VIEW">
-                                <rect key="frame" x="87" y="139" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Full name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oaP-VQ-lU4" userLabel="Email">
                                 <rect key="frame" x="117" y="337" width="181" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1908,7 +1883,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="JWx-zb-qPE"/>
         <segue reference="tmX-Ye-5c2"/>
-        <segue reference="AcE-32-ZoQ"/>
+        <segue reference="SRB-KF-tTQ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="527-5272841_green-tick-icon-green-tick-png-clipart" width="880" height="920"/>
