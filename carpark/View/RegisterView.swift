@@ -86,7 +86,7 @@ class RegisterView: UIViewController {
             role = "NormalUser"
         }
         
-        let user = User(_id: nil, fullName: fullName, email: email, password: password, role: role, isVerified: false)
+        let user = User(fullName: fullName, email: email, password: password, cin: "", car: "", address: "", phone: "", role: role, isVerified: false)
         
         self.signUp(user: user)
     }

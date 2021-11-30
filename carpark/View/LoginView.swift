@@ -16,7 +16,7 @@ class LoginView: UIViewController {
     // variables
     var email : String?
     let spinner = SpinnerViewController()
-    let googleSignInConfig = GIDConfiguration.init(clientID: "783574463459-cuik8iialqigg9021omks6h4k7ssbf7k.apps.googleusercontent.com")
+    let googleSignInConfig = GIDConfiguration.init(clientID: "103144844343-0fguksu88qq9q0bnngr4l7j2ab3u030a.apps.googleusercontent.com")
     
     let googleLoginButton = GIDSignInButton()
     let facebookLoginButton = FBLoginButton(frame: .zero, permissions: [.publicProfile,.email])
@@ -25,7 +25,7 @@ class LoginView: UIViewController {
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     
-    @IBOutlet weak var googleLoginProviderStackView: UIStackView! // Google login button
+    //@IBOutlet weak var googleLoginProviderStackView: UIStackView! // Google login button
     @IBOutlet weak var facebookLoginProviderStackView: UIStackView! // Facebook login button
     
     // protocols
@@ -35,7 +35,7 @@ class LoginView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        googleLoginProviderStackView.addSubview(googleLoginButton)
+        //googleLoginProviderStackView.addSubview(googleLoginButton)
         facebookLoginProviderStackView.addSubview(facebookLoginButton)
         
         googleLoginButton.addTarget(self, action: #selector(googleSignIn), for: .touchUpInside)
@@ -64,7 +64,7 @@ class LoginView: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        googleLoginButton.frame = CGRect(x: 0, y: 0, width: googleLoginProviderStackView.frame.width, height: googleLoginProviderStackView.frame.height)
+        /*googleLoginButton.frame = CGRect(x: 0, y: 0, width: googleLoginProviderStackView.frame.width, height: googleLoginProviderStackView.frame.height)*/
         facebookLoginButton.frame = CGRect(x: 2.5, y: 4, width: facebookLoginProviderStackView.frame.width - 5, height: facebookLoginProviderStackView.frame.height - 10)
         
     }

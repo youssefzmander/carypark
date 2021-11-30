@@ -9,13 +9,15 @@ import Foundation
 import UIKit
 
 class EditProfileView: UIViewController {
-
+    
     // variables
     var user : User?
     
     // iboutlets
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var nameTF: UITextField!
+    @IBOutlet weak var phoneTF: UITextField!
+    @IBOutlet weak var passwordTF: UITextField!
     
     // protocols
     
@@ -26,25 +28,20 @@ class EditProfileView: UIViewController {
         
         emailTF.text = user?.email
         nameTF.text = user?.fullName
+        phoneTF.text = user?.phone
         
-        emailTF.textColor = .white
-        emailTF.backgroundColor = .gray
         emailTF.isEnabled = false
-        
+        passwordTF.isEnabled = false
     }
     
     // methods
-
+    
     // actions
     @IBAction func confirmChanges(_ sender: Any) {
-        
-        if /*emailTF.text!.isEmpty ||*/ nameTF.text!.isEmpty {
-            self.present(Alert.makeAlert(titre: "Warning", message: "You must fill all the fields"), animated: true)
-            return
-        }
-        
+     
         //user?.email = emailTF.text
         user?.fullName = nameTF.text
+        user?.phone = phoneTF.text
         
         
         UserViewModel().editProfile(user: user!) { success in

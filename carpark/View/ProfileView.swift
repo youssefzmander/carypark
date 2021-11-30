@@ -46,6 +46,7 @@ class ProfileView: UIViewController {
                 self.fullNameLabel.text = user?.fullName
                 self.roleLabel.text = user?.role
                 self.emailLabel.text = user?.email
+                self.phoneLabel.text = user?.phone
             } else {
                 self.present(Alert.makeAlert(titre: "Error", message: "Could not verify token"), animated: true
                 )

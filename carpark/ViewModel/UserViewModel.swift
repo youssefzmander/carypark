@@ -17,6 +17,8 @@ class UserViewModel {
         AF.request(Constants.serverUrl + "/user/signUp",
                    method: .post,
                    parameters: [
+                    "fullName": user.fullName!,
+                    "phone": user.phone!,
                     "email": user.email!,
                     "password": user.password!,
                     "role": user.role!
@@ -163,8 +165,11 @@ class UserViewModel {
                    method: .put,
                    parameters: [
                     "_id" : user._id!,
+                    "fullName": user.fullName!,
+                    "phone": user.phone!,
                     "email": user.email!,
-                    //"password": user.password!
+                    "password": user.password!,
+                    "role": user.role!
                    ])
             .response { response in
                 switch response.result {
@@ -184,6 +189,10 @@ class UserViewModel {
             fullName: jsonItem["fullName"].stringValue,
             email: jsonItem["email"].stringValue,
             password: jsonItem["password"].stringValue,
+            cin: jsonItem["cin"].stringValue,
+            car: jsonItem["car"].stringValue,
+            address: jsonItem["address"].stringValue,
+            phone: jsonItem["phone"].stringValue,
             role: jsonItem["role"].stringValue,
             isVerified: jsonItem["isVerified"].boolValue
         )

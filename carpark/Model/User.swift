@@ -8,21 +8,16 @@
 import Foundation
 
 struct User: Encodable {
-    
-    var _id : String?
-    var fullName : String?
-    var email : String?
-    var password : String?
-    var role : String?
-    var isVerified : Bool?
-    
-    init(_id: String? = nil, fullName: String? = nil, email: String? = nil, password: String? = nil, role: String? = nil, isVerified: Bool? = nil) {
-        self._id = _id
-        self.fullName = fullName
-        self.email = email
-        self.password = password
-        self.role = role
-        self.isVerified = isVerified
-    }
+
+    var _id: String?
+    var fullName: String?
+    var email: String?
+    var password: String?
+    var cin: String?
+    var car: String?
+    var address: String?
+    var phone: String?
+    var role: String?
+    var isVerified: Bool?
     
 }
