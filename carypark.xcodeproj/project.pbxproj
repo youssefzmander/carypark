@@ -1,0 +1,498 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8DA6147B275789F200EFE1EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA6147A275789F200EFE1EB /* AppDelegate.swift */; };
+		8DA6147D275789F200EFE1EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA6147C275789F200EFE1EB /* SceneDelegate.swift */; };
+		8DA61484275789F400EFE1EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DA61483275789F400EFE1EB /* Assets.xcassets */; };
+		8DA6149027578AF700EFE1EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DA6148E27578AF700EFE1EB /* Main.storyboard */; };
+		8DA6149127578AF700EFE1EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DA6148F27578AF700EFE1EB /* LaunchScreen.storyboard */; };
+		8DA6149A27578B4400EFE1EB /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA6149727578B4400EFE1EB /* Alert.swift */; };
+		8DA6149B27578B4400EFE1EB /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA6149827578B4400EFE1EB /* Spinner.swift */; };
+		8DA6149C27578B4400EFE1EB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA6149927578B4400EFE1EB /* Constants.swift */; };
+		8DA6149E27578B4A00EFE1EB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA6149D27578B4A00EFE1EB /* User.swift */; };
+		8DA614A827578B5700EFE1EB /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA6149F27578B5600EFE1EB /* LoginView.swift */; };
+		8DA614A927578B5700EFE1EB /* PasswordResetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA614A027578B5600EFE1EB /* PasswordResetView.swift */; };
+		8DA614AA27578B5700EFE1EB /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA614A127578B5600EFE1EB /* ForgotPasswordView.swift */; };
+		8DA614AB27578B5700EFE1EB /* ResetCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA614A227578B5600EFE1EB /* ResetCodeView.swift */; };
+		8DA614AC27578B5700EFE1EB /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA614A327578B5700EFE1EB /* RegisterView.swift */; };
+		8DA614AD27578B5700EFE1EB /* VerifAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA614A427578B5700EFE1EB /* VerifAccountView.swift */; };
+		8DA614AE27578B5700EFE1EB /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA614A527578B5700EFE1EB /* EditProfileView.swift */; };
+		8DA614AF27578B5700EFE1EB /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA614A627578B5700EFE1EB /* ProfileView.swift */; };
+		8DA614B027578B5700EFE1EB /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA614A727578B5700EFE1EB /* PaymentView.swift */; };
+		8DA614B227578B5B00EFE1EB /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA614B127578B5B00EFE1EB /* UserViewModel.swift */; };
+		B0D6CC9A404C0733FC42DF45 /* Pods_carypark.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 866FEDDDCEB6B217A9F0A30D /* Pods_carypark.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		02666E7841450AFEC1C95FE5 /* Pods-carypark.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-carypark.release.xcconfig"; path = "Target Support Files/Pods-carypark/Pods-carypark.release.xcconfig"; sourceTree = "<group>"; };
+		2AC2DB107A6BB5ABB0D152B2 /* Pods-carypark.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-carypark.debug.xcconfig"; path = "Target Support Files/Pods-carypark/Pods-carypark.debug.xcconfig"; sourceTree = "<group>"; };
+		866FEDDDCEB6B217A9F0A30D /* Pods_carypark.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_carypark.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DA61477275789F200EFE1EB /* carypark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = carypark.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DA6147A275789F200EFE1EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8DA6147C275789F200EFE1EB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		8DA61483275789F400EFE1EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8DA61488275789F400EFE1EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8DA6148E27578AF700EFE1EB /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		8DA6148F27578AF700EFE1EB /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8DA6149727578B4400EFE1EB /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		8DA6149827578B4400EFE1EB /* Spinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
+		8DA6149927578B4400EFE1EB /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8DA6149D27578B4A00EFE1EB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8DA6149F27578B5600EFE1EB /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		8DA614A027578B5600EFE1EB /* PasswordResetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordResetView.swift; sourceTree = "<group>"; };
+		8DA614A127578B5600EFE1EB /* ForgotPasswordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
+		8DA614A227578B5600EFE1EB /* ResetCodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetCodeView.swift; sourceTree = "<group>"; };
+		8DA614A327578B5700EFE1EB /* RegisterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		8DA614A427578B5700EFE1EB /* VerifAccountView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifAccountView.swift; sourceTree = "<group>"; };
+		8DA614A527578B5700EFE1EB /* EditProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
+		8DA614A627578B5700EFE1EB /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		8DA614A727578B5700EFE1EB /* PaymentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
+		8DA614B127578B5B00EFE1EB /* UserViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8DA61474275789F200EFE1EB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0D6CC9A404C0733FC42DF45 /* Pods_carypark.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		132D02F9E552D558199D958F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2AC2DB107A6BB5ABB0D152B2 /* Pods-carypark.debug.xcconfig */,
+				02666E7841450AFEC1C95FE5 /* Pods-carypark.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		15C54FB2B77E82D18223E08B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				866FEDDDCEB6B217A9F0A30D /* Pods_carypark.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8DA6146E275789F200EFE1EB = {
+			isa = PBXGroup;
+			children = (
+				8DA61479275789F200EFE1EB /* carypark */,
+				8DA61478275789F200EFE1EB /* Products */,
+				132D02F9E552D558199D958F /* Pods */,
+				15C54FB2B77E82D18223E08B /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		8DA61478275789F200EFE1EB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8DA61477275789F200EFE1EB /* carypark.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8DA61479275789F200EFE1EB /* carypark */ = {
+			isa = PBXGroup;
+			children = (
+				8DA6147A275789F200EFE1EB /* AppDelegate.swift */,
+				8DA6147C275789F200EFE1EB /* SceneDelegate.swift */,
+				8DA6148F27578AF700EFE1EB /* LaunchScreen.storyboard */,
+				8DA6148E27578AF700EFE1EB /* Main.storyboard */,
+				8DA6149427578B0C00EFE1EB /* Model */,
+				8DA6149527578B0E00EFE1EB /* View */,
+				8DA6149327578B0A00EFE1EB /* ViewModel */,
+				8DA6149627578B1000EFE1EB /* Utilities */,
+				8DA61483275789F400EFE1EB /* Assets.xcassets */,
+				8DA61488275789F400EFE1EB /* Info.plist */,
+			);
+			path = carypark;
+			sourceTree = "<group>";
+		};
+		8DA6149327578B0A00EFE1EB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8DA614B127578B5B00EFE1EB /* UserViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8DA6149427578B0C00EFE1EB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8DA6149D27578B4A00EFE1EB /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8DA6149527578B0E00EFE1EB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8DA614A527578B5700EFE1EB /* EditProfileView.swift */,
+				8DA614A127578B5600EFE1EB /* ForgotPasswordView.swift */,
+				8DA6149F27578B5600EFE1EB /* LoginView.swift */,
+				8DA614A027578B5600EFE1EB /* PasswordResetView.swift */,
+				8DA614A727578B5700EFE1EB /* PaymentView.swift */,
+				8DA614A627578B5700EFE1EB /* ProfileView.swift */,
+				8DA614A327578B5700EFE1EB /* RegisterView.swift */,
+				8DA614A227578B5600EFE1EB /* ResetCodeView.swift */,
+				8DA614A427578B5700EFE1EB /* VerifAccountView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8DA6149627578B1000EFE1EB /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				8DA6149727578B4400EFE1EB /* Alert.swift */,
+				8DA6149927578B4400EFE1EB /* Constants.swift */,
+				8DA6149827578B4400EFE1EB /* Spinner.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8DA61476275789F200EFE1EB /* carypark */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8DA6148B275789F400EFE1EB /* Build configuration list for PBXNativeTarget "carypark" */;
+			buildPhases = (
+				5A1D27D2871275F91D5E407A /* [CP] Check Pods Manifest.lock */,
+				8DA61473275789F200EFE1EB /* Sources */,
+				8DA61474275789F200EFE1EB /* Frameworks */,
+				8DA61475275789F200EFE1EB /* Resources */,
+				466147692BC747B365CEFF58 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = carypark;
+			productName = carypark;
+			productReference = 8DA61477275789F200EFE1EB /* carypark.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8DA6146F275789F200EFE1EB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1310;
+				LastUpgradeCheck = 1310;
+				TargetAttributes = {
+					8DA61476275789F200EFE1EB = {
+						CreatedOnToolsVersion = 13.1;
+					};
+				};
+			};
+			buildConfigurationList = 8DA61472275789F200EFE1EB /* Build configuration list for PBXProject "carypark" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8DA6146E275789F200EFE1EB;
+			productRefGroup = 8DA61478275789F200EFE1EB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8DA61476275789F200EFE1EB /* carypark */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8DA61475275789F200EFE1EB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DA6149127578AF700EFE1EB /* LaunchScreen.storyboard in Resources */,
+				8DA61484275789F400EFE1EB /* Assets.xcassets in Resources */,
+				8DA6149027578AF700EFE1EB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		466147692BC747B365CEFF58 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-carypark/Pods-carypark-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-carypark/Pods-carypark-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-carypark/Pods-carypark-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5A1D27D2871275F91D5E407A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-carypark-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8DA61473275789F200EFE1EB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DA614AC27578B5700EFE1EB /* RegisterView.swift in Sources */,
+				8DA614AD27578B5700EFE1EB /* VerifAccountView.swift in Sources */,
+				8DA6149C27578B4400EFE1EB /* Constants.swift in Sources */,
+				8DA614A827578B5700EFE1EB /* LoginView.swift in Sources */,
+				8DA6149A27578B4400EFE1EB /* Alert.swift in Sources */,
+				8DA614A927578B5700EFE1EB /* PasswordResetView.swift in Sources */,
+				8DA6149E27578B4A00EFE1EB /* User.swift in Sources */,
+				8DA6147B275789F200EFE1EB /* AppDelegate.swift in Sources */,
+				8DA6147D275789F200EFE1EB /* SceneDelegate.swift in Sources */,
+				8DA614B227578B5B00EFE1EB /* UserViewModel.swift in Sources */,
+				8DA614AA27578B5700EFE1EB /* ForgotPasswordView.swift in Sources */,
+				8DA6149B27578B4400EFE1EB /* Spinner.swift in Sources */,
+				8DA614AE27578B5700EFE1EB /* EditProfileView.swift in Sources */,
+				8DA614AF27578B5700EFE1EB /* ProfileView.swift in Sources */,
+				8DA614B027578B5700EFE1EB /* PaymentView.swift in Sources */,
+				8DA614AB27578B5700EFE1EB /* ResetCodeView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		8DA61489275789F400EFE1EB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8DA6148A275789F400EFE1EB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8DA6148C275789F400EFE1EB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2AC2DB107A6BB5ABB0D152B2 /* Pods-carypark.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = carypark/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = tn.esprit.carypark;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8DA6148D275789F400EFE1EB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 02666E7841450AFEC1C95FE5 /* Pods-carypark.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = carypark/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = tn.esprit.carypark;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8DA61472275789F200EFE1EB /* Build configuration list for PBXProject "carypark" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8DA61489275789F400EFE1EB /* Debug */,
+				8DA6148A275789F400EFE1EB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8DA6148B275789F400EFE1EB /* Build configuration list for PBXNativeTarget "carypark" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8DA6148C275789F400EFE1EB /* Debug */,
+				8DA6148D275789F400EFE1EB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8DA6146F275789F200EFE1EB /* Project object */;
+}
