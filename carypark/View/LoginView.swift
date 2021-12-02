@@ -16,7 +16,7 @@ class LoginView: UIViewController {
     // variables
     var email : String?
     let spinner = SpinnerViewController()
-    let googleSignInConfig = GIDConfiguration.init(clientID: "103144844343-0fguksu88qq9q0bnngr4l7j2ab3u030a.apps.googleusercontent.com")
+    let googleSignInConfig = GIDConfiguration.init(clientID: "103144844343-plp62tnnhgvs3gni3d9ifdv7aole9j05.apps.googleusercontent.com")
     
     let googleLoginButton = GIDSignInButton()
     let facebookLoginButton = FBLoginButton(frame: .zero, permissions: [.publicProfile,.email])
@@ -25,7 +25,7 @@ class LoginView: UIViewController {
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     
-    //@IBOutlet weak var googleLoginProviderStackView: UIStackView! // Google login button
+    @IBOutlet weak var googleLoginProviderStackView: UIStackView! // Google login button
     @IBOutlet weak var facebookLoginProviderStackView: UIStackView! // Facebook login button
     
     // protocols
@@ -35,11 +35,10 @@ class LoginView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //googleLoginProviderStackView.addSubview(googleLoginButton)
+        googleLoginProviderStackView.addSubview(googleLoginButton)
         facebookLoginProviderStackView.addSubview(facebookLoginButton)
         
         googleLoginButton.addTarget(self, action: #selector(googleSignIn), for: .touchUpInside)
-        facebookLoginButton.addTarget(self, action: #selector(facebookSignIn), for: .touchUpInside)
         
         facebookLoginButton.permissions = ["public_profile", "email"]
         
@@ -135,11 +134,6 @@ class LoginView: UIViewController {
             
             stopSpinner()
         }
-    }
-    
-    @objc func facebookSignIn(_ loginButton: FBLoginButton, didCompleteWith result:
-                              LoginManagerLoginResult?, error: Error?) {
-       
     }
     
     func loginWithSocialMedia(email: String?, name: String?, socialMediaName: String) {

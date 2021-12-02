@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D688EBB2758E74F00872C5E /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D688EBA2758E74E00872C5E /* MapView.swift */; };
+		8D688EBD2758EDF700872C5E /* ParkingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D688EBC2758EDF700872C5E /* ParkingViewModel.swift */; };
+		8D688EBF2758EE1A00872C5E /* Parking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D688EBE2758EE1A00872C5E /* Parking.swift */; };
+		8D688EC12758EE4400872C5E /* PlaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D688EC02758EE4400872C5E /* PlaceViewModel.swift */; };
+		8D688EC32758EE6400872C5E /* ReservationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D688EC22758EE6400872C5E /* ReservationViewModel.swift */; };
+		8D688EC52758EEA100872C5E /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D688EC42758EEA100872C5E /* Place.swift */; };
+		8D688EC72758EEAE00872C5E /* Reservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D688EC62758EEAE00872C5E /* Reservation.swift */; };
+		8D688EC9275907DD00872C5E /* PinAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D688EC8275907DD00872C5E /* PinAnnotation.swift */; };
+		8D688ECB27593EAF00872C5E /* ParkingDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D688ECA27593EAF00872C5E /* ParkingDetailsView.swift */; };
 		8DA6147B275789F200EFE1EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA6147A275789F200EFE1EB /* AppDelegate.swift */; };
 		8DA6147D275789F200EFE1EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA6147C275789F200EFE1EB /* SceneDelegate.swift */; };
 		8DA61484275789F400EFE1EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DA61483275789F400EFE1EB /* Assets.xcassets */; };
@@ -26,6 +35,7 @@
 		8DA614AF27578B5700EFE1EB /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA614A627578B5700EFE1EB /* ProfileView.swift */; };
 		8DA614B027578B5700EFE1EB /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA614A727578B5700EFE1EB /* PaymentView.swift */; };
 		8DA614B227578B5B00EFE1EB /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA614B127578B5B00EFE1EB /* UserViewModel.swift */; };
+		8DFC6A6B2757DB0600DA0175 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFC6A6A2757DB0600DA0175 /* SettingsView.swift */; };
 		B0D6CC9A404C0733FC42DF45 /* Pods_carypark.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 866FEDDDCEB6B217A9F0A30D /* Pods_carypark.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +43,15 @@
 		02666E7841450AFEC1C95FE5 /* Pods-carypark.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-carypark.release.xcconfig"; path = "Target Support Files/Pods-carypark/Pods-carypark.release.xcconfig"; sourceTree = "<group>"; };
 		2AC2DB107A6BB5ABB0D152B2 /* Pods-carypark.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-carypark.debug.xcconfig"; path = "Target Support Files/Pods-carypark/Pods-carypark.debug.xcconfig"; sourceTree = "<group>"; };
 		866FEDDDCEB6B217A9F0A30D /* Pods_carypark.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_carypark.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D688EBA2758E74E00872C5E /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		8D688EBC2758EDF700872C5E /* ParkingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingViewModel.swift; sourceTree = "<group>"; };
+		8D688EBE2758EE1A00872C5E /* Parking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parking.swift; sourceTree = "<group>"; };
+		8D688EC02758EE4400872C5E /* PlaceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceViewModel.swift; sourceTree = "<group>"; };
+		8D688EC22758EE6400872C5E /* ReservationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationViewModel.swift; sourceTree = "<group>"; };
+		8D688EC42758EEA100872C5E /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		8D688EC62758EEAE00872C5E /* Reservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reservation.swift; sourceTree = "<group>"; };
+		8D688EC8275907DD00872C5E /* PinAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinAnnotation.swift; sourceTree = "<group>"; };
+		8D688ECA27593EAF00872C5E /* ParkingDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingDetailsView.swift; sourceTree = "<group>"; };
 		8DA61477275789F200EFE1EB /* carypark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = carypark.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DA6147A275789F200EFE1EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8DA6147C275789F200EFE1EB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -54,6 +73,7 @@
 		8DA614A627578B5700EFE1EB /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		8DA614A727578B5700EFE1EB /* PaymentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
 		8DA614B127578B5B00EFE1EB /* UserViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		8DFC6A6A2757DB0600DA0175 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +144,9 @@
 			isa = PBXGroup;
 			children = (
 				8DA614B127578B5B00EFE1EB /* UserViewModel.swift */,
+				8D688EBC2758EDF700872C5E /* ParkingViewModel.swift */,
+				8D688EC02758EE4400872C5E /* PlaceViewModel.swift */,
+				8D688EC22758EE6400872C5E /* ReservationViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -132,6 +155,9 @@
 			isa = PBXGroup;
 			children = (
 				8DA6149D27578B4A00EFE1EB /* User.swift */,
+				8D688EBE2758EE1A00872C5E /* Parking.swift */,
+				8D688EC42758EEA100872C5E /* Place.swift */,
+				8D688EC62758EEAE00872C5E /* Reservation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -139,15 +165,18 @@
 		8DA6149527578B0E00EFE1EB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8DA614A427578B5700EFE1EB /* VerifAccountView.swift */,
+				8DA614A327578B5700EFE1EB /* RegisterView.swift */,
+				8DA6149F27578B5600EFE1EB /* LoginView.swift */,
 				8DA614A527578B5700EFE1EB /* EditProfileView.swift */,
 				8DA614A127578B5600EFE1EB /* ForgotPasswordView.swift */,
-				8DA6149F27578B5600EFE1EB /* LoginView.swift */,
 				8DA614A027578B5600EFE1EB /* PasswordResetView.swift */,
+				8DA614A227578B5600EFE1EB /* ResetCodeView.swift */,
 				8DA614A727578B5700EFE1EB /* PaymentView.swift */,
 				8DA614A627578B5700EFE1EB /* ProfileView.swift */,
-				8DA614A327578B5700EFE1EB /* RegisterView.swift */,
-				8DA614A227578B5600EFE1EB /* ResetCodeView.swift */,
-				8DA614A427578B5700EFE1EB /* VerifAccountView.swift */,
+				8DFC6A6A2757DB0600DA0175 /* SettingsView.swift */,
+				8D688EBA2758E74E00872C5E /* MapView.swift */,
+				8D688ECA27593EAF00872C5E /* ParkingDetailsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -158,6 +187,7 @@
 				8DA6149727578B4400EFE1EB /* Alert.swift */,
 				8DA6149927578B4400EFE1EB /* Constants.swift */,
 				8DA6149827578B4400EFE1EB /* Spinner.swift */,
+				8D688EC8275907DD00872C5E /* PinAnnotation.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -277,21 +307,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D688EC52758EEA100872C5E /* Place.swift in Sources */,
 				8DA614AC27578B5700EFE1EB /* RegisterView.swift in Sources */,
 				8DA614AD27578B5700EFE1EB /* VerifAccountView.swift in Sources */,
 				8DA6149C27578B4400EFE1EB /* Constants.swift in Sources */,
 				8DA614A827578B5700EFE1EB /* LoginView.swift in Sources */,
 				8DA6149A27578B4400EFE1EB /* Alert.swift in Sources */,
+				8D688ECB27593EAF00872C5E /* ParkingDetailsView.swift in Sources */,
+				8D688EC32758EE6400872C5E /* ReservationViewModel.swift in Sources */,
+				8D688EBF2758EE1A00872C5E /* Parking.swift in Sources */,
+				8D688EC12758EE4400872C5E /* PlaceViewModel.swift in Sources */,
+				8DFC6A6B2757DB0600DA0175 /* SettingsView.swift in Sources */,
 				8DA614A927578B5700EFE1EB /* PasswordResetView.swift in Sources */,
 				8DA6149E27578B4A00EFE1EB /* User.swift in Sources */,
 				8DA6147B275789F200EFE1EB /* AppDelegate.swift in Sources */,
 				8DA6147D275789F200EFE1EB /* SceneDelegate.swift in Sources */,
+				8D688EC72758EEAE00872C5E /* Reservation.swift in Sources */,
 				8DA614B227578B5B00EFE1EB /* UserViewModel.swift in Sources */,
 				8DA614AA27578B5700EFE1EB /* ForgotPasswordView.swift in Sources */,
+				8D688EC9275907DD00872C5E /* PinAnnotation.swift in Sources */,
 				8DA6149B27578B4400EFE1EB /* Spinner.swift in Sources */,
+				8D688EBB2758E74F00872C5E /* MapView.swift in Sources */,
 				8DA614AE27578B5700EFE1EB /* EditProfileView.swift in Sources */,
 				8DA614AF27578B5700EFE1EB /* ProfileView.swift in Sources */,
 				8DA614B027578B5700EFE1EB /* PaymentView.swift in Sources */,
+				8D688EBD2758EDF700872C5E /* ParkingViewModel.swift in Sources */,
 				8DA614AB27578B5700EFE1EB /* ResetCodeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

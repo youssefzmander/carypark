@@ -9,44 +9,47 @@ import Foundation
 import UIKit
 import FBSDKLoginKit
 
-class ProfileView: UIViewController {
+protocol ModalDelegate {
+    func initProfileFromEdit()
+}
+
+class ProfileView: UIViewController, ModalDelegate {
 
     // variables
     let token = UserDefaults.standard.string(forKey: "userToken")!
     var user : User?
     
     // iboutlets
-    @IBOutlet weak var fullNameLabel: UILabel!
-    @IBOutlet weak var roleLabel: UILabel!
-    @IBOutlet weak var emailLabel: UILabel!
-    @IBOutlet weak var phoneLabel: UILabel!
+    @IBOutlet weak var fullNameTF: UITextField!
+    @IBOutlet weak var emailTF: UITextField!
+    @IBOutlet weak var phoneTF: UITextField!
+    @IBOutlet weak var passwordTF: UITextField!
     
-    // life cycle
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "editProfileSegue" {
-            /*let controller = segue.destinationViewController as! ResultViewController
-            controller.match = self.match*/
-            
-            let destination = segue.destination as! EditProfileView
-            destination.user = user
-        }
+    // protocols
+    func initProfileFromEdit() {
+        initializeProfile()
     }
     
+    // life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        emailTF.isEnabled = false
+        passwordTF.isEnabled = false
+        
         initializeProfile()
     }
-
+    
     // methods
     func initializeProfile() {
         print("initializing profile")
-        UserViewModel().getUserFromToken(userToken: token, completed: { success, user in
+        UserViewModel().getUserFromToken(userToken: token, completed: { success, result in
             if success {
-                self.fullNameLabel.text = user?.fullName
-                self.roleLabel.text = user?.role
-                self.emailLabel.text = user?.email
-                self.phoneLabel.text = user?.phone
+                self.user = result
+                self.fullNameTF.text = self.user?.fullName
+                self.emailTF.text = self.user?.email
+                self.phoneTF.text = self.user?.phone
+                self.passwordTF.text = "****"
             } else {
                 self.present(Alert.makeAlert(titre: "Error", message: "Could not verify token"), animated: true
                 )
@@ -55,32 +58,21 @@ class ProfileView: UIViewController {
     }
     
     // actions
-    @IBAction func logout(_ sender: Any) {
-        print("logging out")
+    @IBAction func confirmChanges(_ sender: Any) {
         
-        let loginManager = LoginManager()
-        loginManager.logOut()
+        //user?.email = emailTF.text
+        user?.fullName = fullNameTF.text
+        user?.phone = phoneTF.text
         
-        UserDefaults.standard.set(nil, forKey: "userToken")
-        self.performSegue(withIdentifier: "logoutSegue", sender: nil)
-    }
-    
-    @IBAction func editProfil(_ sender: Any) {
-        
-        if ((UserDefaults.standard.string(forKey: "userToken")) != nil){
-            UserViewModel().getUserFromToken(userToken: token, completed: { success, user in
-                self.user = user
-                if success {
-                    self.performSegue(withIdentifier: "editProfileSegue", sender: user)
-                } else {
-                    self.present(Alert.makeAlert(titre: "Error", message: "Could not verify token"), animated: true
-                    )
+        UserViewModel().editProfile(user: user!) { success in
+            if success {
+                let action = UIAlertAction(title: "Proceed", style: .default) { UIAlertAction in
+                    self.dismiss(animated: true, completion: nil)
                 }
-            })
+                self.present(Alert.makeSingleActionAlert(titre: "Success", message: "Profile edited successfully", action: action), animated: true)
+            } else {
+                self.present(Alert.makeAlert(titre: "Error", message: "Could not edit your profile"), animated: true)
+            }
         }
-    }
-    
-    @IBAction func reloadProfile(_ sender: Any) {
-        initializeProfile()
     }
 }

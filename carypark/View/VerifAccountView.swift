@@ -17,12 +17,6 @@ class VerifAccountView: UIViewController {
     // life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let spinner = SpinnerViewController()
-        addChild(spinner)
-        spinner.view.frame = view.frame
-        view.addSubview(spinner.view)
-        spinner.didMove(toParent: self)
     }
     
     override func viewDidAppear(_ animated: Bool) {
