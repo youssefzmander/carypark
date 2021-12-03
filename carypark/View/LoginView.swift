@@ -24,7 +24,7 @@ class LoginView: UIViewController {
     // iboutlets
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
-    
+    @IBOutlet weak var ownerOfParkSwitch: UISwitch!
     @IBOutlet weak var googleLoginProviderStackView: UIStackView! // Google login button
     @IBOutlet weak var facebookLoginProviderStackView: UIStackView! // Facebook login button
     
@@ -136,9 +136,17 @@ class LoginView: UIViewController {
         }
     }
     
-    func loginWithSocialMedia(email: String?, name: String?, socialMediaName: String) {
-        startSpinner()
-        UserViewModel().loginWithSocialApp(email: email!, name: name!, completed: { success, user in
+    func loginWithSocialMedia(email: String?, name: String?,
+                              socialMediaName: String) {
+        
+        let role : String?
+        if ownerOfParkSwitch.isOn {
+            role = "ParkOwner"
+        } else {
+            role = "NormalUser"
+        }
+        
+        UserViewModel().loginWithSocialApp(email: email!, name: name!, role: role!, completed: { success, user in
             if success {
                 self.proceedToLogin(user: user!)
             } else {
@@ -161,9 +169,9 @@ class LoginView: UIViewController {
     
     func proceedToLogin(user: User) {
         if (user.role == "ParkOwner") {
-            self.performSegue(withIdentifier: "loginSegue", sender: nil)
-        } else if (user.role == "Student"){
-            self.performSegue(withIdentifier: "loginSegue", sender: nil)
+            self.performSegue(withIdentifier: "loginAsParkOwnerSegue", sender: nil)
+        } else if (user.role == "NormalUser"){
+            self.performSegue(withIdentifier: "loginAsNormalUserSegue", sender: nil)
         } else {
             self.present(Alert.makeAlert(titre: "Error", message: "Invalid account"), animated: true)
         }

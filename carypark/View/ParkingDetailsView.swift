@@ -23,6 +23,11 @@ class ParkingDetailsView: UIViewController  {
     
     
     // life cycle
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as! ReservationView
+        destination.parking = self.parking
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,5 +40,8 @@ class ParkingDetailsView: UIViewController  {
     
     
     // actions
+    @IBAction func makeReservation(_ sender: Any) {
+        performSegue(withIdentifier: "makeReservationSegue", sender: parking)
+    }
     
 }

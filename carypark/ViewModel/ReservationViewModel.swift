@@ -26,6 +26,7 @@ class ReservationViewModel {
                     let reservation = self.makeReservation(jsonItem: jsonData["reservation"])
                     completed(true, reservation)
                 case let .failure(error):
+                    print(error)
                     completed(false, nil)
                 }
             }
@@ -37,7 +38,6 @@ class ReservationViewModel {
                    parameters: [
                     "dateEntre": reservation.dateEntre!,
                     "dateSortie": reservation.dateSortie!,
-                    "idPlace": reservation.idPlace!,
                     "idParking": reservation.idParking!
                    ])
             .validate(statusCode: 200..<300)
@@ -47,6 +47,7 @@ class ReservationViewModel {
                 case .success:
                     completed(true)
                 case let .failure(error):
+                    print(error)
                     completed(false)
                 }
             }
@@ -59,7 +60,6 @@ class ReservationViewModel {
                     "_id": reservation._id!,
                     "dateEntre": reservation.dateEntre!,
                     "dateSortie": reservation.dateSortie!,
-                    "idPlace": reservation.idPlace!,
                     "idParking": reservation.idParking!
                    ])
             .validate(statusCode: 200..<300)
@@ -69,6 +69,7 @@ class ReservationViewModel {
                 case .success:
                     completed(true)
                 case let .failure(error):
+                    print(error)
                     completed(false)
                 }
             }
@@ -87,6 +88,7 @@ class ReservationViewModel {
                 case .success:
                     completed(true)
                 case let .failure(error):
+                    print(error)
                     completed(false)
                 }
             }
@@ -97,7 +99,6 @@ class ReservationViewModel {
             _id: jsonItem["_id"].stringValue,
             dateEntre: Date(), //jsonItem["dateEntre"].stringValue,
             dateSortie: Date(), //jsonItem["dateSortie"].stringValue,
-            idPlace: jsonItem["idPlace"].stringValue,
             idParking: jsonItem["idParking"].stringValue
         )
     }

@@ -14,8 +14,7 @@ class GuardianMapView: UIViewController, MKMapViewDelegate, CLLocationManagerDel
     // variables
     let locationManager = CLLocationManager()
     var createdParking : Parking?
-    
-    let newPin = MKPointAnnotation()
+    let myPin = MKPointAnnotation()
     
     // iboutlets
     @IBOutlet weak var mapView: MKMapView!
@@ -23,22 +22,9 @@ class GuardianMapView: UIViewController, MKMapViewDelegate, CLLocationManagerDel
     @IBOutlet weak var addParkButton: UIButton!
     
     // protocols
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        mapView.removeAnnotation(newPin)
-
-        let location = locations.last! as CLLocation
-
-        let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-
-        //set region on the map
-        mapView.setRegion(region, animated: true)
-
-        newPin.coordinate = location.coordinate
-        mapView.addAnnotation(newPin)
-
+    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+        print("happn")
     }
-    
     
     // life cycle
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -69,22 +55,29 @@ class GuardianMapView: UIViewController, MKMapViewDelegate, CLLocationManagerDel
         mapView.isZoomEnabled = true
         mapView.isScrollEnabled = true
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(GuardianMapView.handleTap(gestureRecognizer:)))
+        self.mapView.addGestureRecognizer(tapGesture)
     }
     
     // methods
-  
-    
-    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+    @objc func handleTap(gestureRecognizer: UITapGestureRecognizer){
         
-        let pinAnnotation = view.annotation as? PinAnnotation
-        
-        ParkingViewModel().getParkingById(_id: pinAnnotation?.id) { success, responseParking in
-            if success {
-                self.createdParking = responseParking
-                self.viewParkButton.isEnabled = true
-            } else {
-                self.present(Alert.makeAlert(titre: "Error", message: "Could not load parking"), animated: true)
-            }
+        if gestureRecognizer.state != UITapGestureRecognizer.State.began{
+            let touchLocation = gestureRecognizer.location(in: mapView)
+            let locationCoordinate = mapView.convert(touchLocation, toCoordinateFrom: mapView)
+            
+            addParkButton.isEnabled = true
+            
+            print("Tapped at Lattitude: " + String(locationCoordinate.latitude) + ", Longitude: " + String(locationCoordinate.longitude))
+            
+            
+            myPin.coordinate = locationCoordinate
+            
+            myPin.title = "Lattitude: " + String(locationCoordinate.latitude) + ", Longitude: " + String(locationCoordinate.longitude)
+            
+            createdParking = Parking(longitude: locationCoordinate.longitude, latitude: locationCoordinate.latitude)
+            
+            mapView.addAnnotation(myPin)
         }
     }
     

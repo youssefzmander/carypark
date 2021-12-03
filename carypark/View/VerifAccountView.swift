@@ -35,7 +35,7 @@ class VerifAccountView: UIViewController {
             UserViewModel().getUserFromToken(userToken: token!) { success, user in
                 if success {
                     if (user!.role == "ParkOwner") {
-                        self.performSegue(withIdentifier: "logInAsNormalUserSegue", sender: nil)
+                        self.performSegue(withIdentifier: "logInAsSecurityGuardSegue", sender: nil)
                     } else if (user!.role == "NormalUser") {
                         self.performSegue(withIdentifier: "logInAsNormalUserSegue", sender: nil)
                     }

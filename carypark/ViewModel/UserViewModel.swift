@@ -81,10 +81,10 @@ class UserViewModel {
             }
     }
     
-    func loginWithSocialApp(email: String, name: String, completed: @escaping (Bool, User?) -> Void ) {
+    func loginWithSocialApp(email: String, name: String, role : String, completed: @escaping (Bool, User?) -> Void ) {
         AF.request(Constants.serverUrl + "/user/loginWithSocialApp",
                    method: .post,
-                   parameters: ["email": email, "name": name],
+                   parameters: ["email": email, "name": name, "role": role ],
                    encoding: JSONEncoding.default)
             .validate(statusCode: 200..<300)
             .validate(contentType: ["application/json"])

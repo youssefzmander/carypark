@@ -59,7 +59,8 @@ class ParkingViewModel {
                     "nbrPlace": parking.nbrPlace!,
                     "longitude": parking.longitude!,
                     "latitude": parking.latitude!,
-                    "prix": parking.prix!
+                    "prix": parking.prix!,
+                    "idUser": parking.idUser!
                    ])
             .validate(statusCode: 200..<300)
             .validate(contentType: ["application/json"])
@@ -124,7 +125,8 @@ class ParkingViewModel {
             nbrPlace: jsonItem["nbrPlace"].intValue,
             longitude: jsonItem["longitude"].doubleValue,
             latitude: jsonItem["latitude"].doubleValue,
-            prix: jsonItem["prix"].floatValue
+            prix: jsonItem["prix"].floatValue,
+            idUser: jsonItem["idUser"].stringValue
         )
     }
 }
