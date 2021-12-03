@@ -16,4 +16,6 @@ struct Reservation: Encodable {
     var idPlace: String?
     var idParking: String?
     
+    
+    
 }

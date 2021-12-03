@@ -15,5 +15,6 @@ struct Parking: Encodable {
     var longitude: Double?
     var latitude: Double?
     var prix: Float?
+    var idUser: String?
     
 }
