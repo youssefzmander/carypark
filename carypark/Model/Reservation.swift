@@ -13,5 +13,5 @@ struct Reservation: Encodable {
     var dateEntre: Date?
     var dateSortie: Date?
     
-    var idParking: String?
+    var parking: Parking?
 }

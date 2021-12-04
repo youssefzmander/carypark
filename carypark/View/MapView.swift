@@ -9,11 +9,12 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MapView: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate  {
+class MapView: UIViewController, CLLocationManagerDelegate  {
     
     // variables
     let locationManager = CLLocationManager()
     var activeParking : Parking?
+    var currentLocation : CLLocationCoordinate2D?
     
     // iboutlets
     @IBOutlet weak var mapView: MKMapView!
@@ -50,6 +51,20 @@ class MapView: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate  {
         mapView.isZoomEnabled = true
         mapView.isScrollEnabled = true
         
+        // User location
+        let noLocation = CLLocationCoordinate2D()
+        
+        // Esprit location
+        let espritLocation = CLLocationCoordinate2D(latitude: 36.897901,longitude: 10.190886)
+        
+        currentLocation = espritLocation
+        
+        let viewRegion = MKCoordinateRegion(center: currentLocation!, latitudinalMeters: 100000, longitudinalMeters: 100000)
+        mapView.setRegion(viewRegion, animated: false)
+        mapView.showsUserLocation = true
+        
+        
+        
     }
     
     // methods
@@ -58,6 +73,7 @@ class MapView: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate  {
         ParkingViewModel().getAllParking { success, parkings in
             if success {
                 
+                var pinAnnotations : [PinAnnotation] = []
                 for parking in parkings! {
                     
                     print("Loading location with coordinates (" + String(parking.latitude!) + "," + String(parking.longitude!) + ")")
@@ -66,11 +82,67 @@ class MapView: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate  {
                     pinAnnotation.setCoordinate(newCoordinate: CLLocationCoordinate2D(latitude: parking.latitude!, longitude: parking.longitude!))
                     pinAnnotation.title = parking.adresse
                     pinAnnotation.id = parking._id
-                    self.mapView.addAnnotation(pinAnnotation)
+                    
+                    pinAnnotations.append(pinAnnotation)
                 }
+                self.mapView.addAnnotations(pinAnnotations)
+                
             } else {
                 self.present(Alert.makeAlert(titre: "Server error", message: "Could not load locations"),animated: true)
             }
+        }
+    }
+    
+    func createPath(sourceLocation : CLLocationCoordinate2D, destinationLocation : CLLocationCoordinate2D) {
+        let sourcePlaceMark = MKPlacemark(coordinate: sourceLocation, addressDictionary: nil)
+        let destinationPlaceMark = MKPlacemark(coordinate: destinationLocation, addressDictionary: nil)
+        
+        
+        let sourceMapItem = MKMapItem(placemark: sourcePlaceMark)
+        let destinationItem = MKMapItem(placemark: destinationPlaceMark)
+        
+        
+        let sourceAnotation = MKPointAnnotation()
+        sourceAnotation.title = "Source"
+        sourceAnotation.subtitle = "You"
+        if let location = sourcePlaceMark.location {
+            sourceAnotation.coordinate = location.coordinate
+        }
+        
+        let destinationAnotation = MKPointAnnotation()
+        destinationAnotation.title = "Destination"
+        destinationAnotation.subtitle = "Your car park"
+        if let location = destinationPlaceMark.location {
+            destinationAnotation.coordinate = location.coordinate
+        }
+        
+        self.mapView.showAnnotations([sourceAnotation, destinationAnotation], animated: true)
+        
+        
+        
+        let directionRequest = MKDirections.Request()
+        directionRequest.source = sourceMapItem
+        directionRequest.destination = destinationItem
+        directionRequest.transportType = .automobile
+        
+        let direction = MKDirections(request: directionRequest)
+        
+        
+        direction.calculate { (response, error) in
+            guard let response = response else {
+                if let error = error {
+                    print("ERROR FOUND : \(error.localizedDescription)")
+                }
+                return
+            }
+            
+            let route = response.routes[0]
+            self.mapView.addOverlay(route.polyline, level: MKOverlayLevel.aboveRoads)
+            
+            let rect = route.polyline.boundingMapRect
+            
+            self.mapView.setRegion(MKCoordinateRegion(rect), animated: true)
+            
         }
     }
     
@@ -82,6 +154,17 @@ class MapView: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate  {
             if success {
                 self.activeParking = responseParking
                 self.viewParkButton.isEnabled = true
+                
+                /*let sourceLocation =  CLLocationCoordinate2D(latitude: self.currentLocation!.latitude, longitude: self.currentLocation!.longitude)
+                let destinationLocation = CLLocationCoordinate2D(latitude: pinAnnotation!.coordinate.latitude, longitude: pinAnnotation!.coordinate.longitude)
+                */
+                
+                let sourceLocation = CLLocationCoordinate2D(latitude: 28.704060, longitude: 77.102493)
+                let destinationLocation = CLLocationCoordinate2D(latitude: 28.459497, longitude: 77.026634)
+                
+                self.createPath(sourceLocation: sourceLocation, destinationLocation: destinationLocation)
+                self.mapView.delegate = self
+                
             } else {
                 self.present(Alert.makeAlert(titre: "Error", message: "Could not load parking"), animated: true)
             }
@@ -112,5 +195,15 @@ class MapView: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate  {
     // actions
     @IBAction func viewParking(_ sender: Any) {
         performSegue(withIdentifier: "parkingDetailsSegue", sender: activeParking)
+    }
+}
+
+extension MapView : MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let rendere = MKPolylineRenderer(overlay: overlay)
+        rendere.lineWidth = 5
+        rendere.strokeColor = .systemBlue
+        
+        return rendere
     }
 }

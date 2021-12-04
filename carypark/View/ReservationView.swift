@@ -33,7 +33,8 @@ class ReservationView: UIViewController  {
     
     // actions
     @IBAction func bookSpace(_ sender: Any) {
-        let reservation = Reservation(dateEntre: checkInDatePicker.date, dateSortie: checkOutDatePicker.date, idParking: parking?._id)
+        let reservation = Reservation(dateEntre: checkInDatePicker.date, dateSortie: checkOutDatePicker.date, parking: parking)
+        
         ReservationViewModel().addReservation(reservation: reservation) { success in
             if success {
                 let action = UIAlertAction(title: "Proceed", style: .default) { UIAlertAction in
