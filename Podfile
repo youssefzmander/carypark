@@ -10,5 +10,5 @@ target 'carypark' do
   pod 'SwiftyJSON', '~> 4.0'
   pod 'GoogleSignIn'
   pod 'FBSDKLoginKit', '~> 11.0'
-
+  
 end
