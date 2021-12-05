@@ -8,7 +8,8 @@
 import UIKit
 import CoreData
 import GoogleSignIn
-import FBSDKCoreKit
+import Braintree
+import FBSDKLoginKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {

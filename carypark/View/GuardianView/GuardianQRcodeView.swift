@@ -2,7 +2,7 @@
 //  GuardianQRcode.swift
 //  carypark
 //
-//  Created by Maher & Jamel on 4/12/2021.
+//  Created by Mac-Mini_2021 on 4/12/2021.
 //
 
 import Foundation

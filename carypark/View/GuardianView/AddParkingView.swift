@@ -20,7 +20,6 @@ class AddParkingView: UIViewController  {
     @IBOutlet weak var endDatePicker: UIDatePicker!
     
     
-    
     // protocols
     
     

@@ -22,9 +22,6 @@ class GuardianMapView: UIViewController, MKMapViewDelegate, CLLocationManagerDel
     @IBOutlet weak var addParkButton: UIButton!
     
     // protocols
-    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-        print("happn")
-    }
     
     // life cycle
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

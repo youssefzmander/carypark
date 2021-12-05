@@ -32,6 +32,7 @@ class LoginView: UIViewController {
     
     
     // life cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -63,7 +64,7 @@ class LoginView: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        /*googleLoginButton.frame = CGRect(x: 0, y: 0, width: googleLoginProviderStackView.frame.width, height: googleLoginProviderStackView.frame.height)*/
+        googleLoginButton.frame = CGRect(x: 0, y: 0, width: googleLoginProviderStackView.frame.width, height: googleLoginProviderStackView.frame.height)
         facebookLoginButton.frame = CGRect(x: 2.5, y: 4, width: facebookLoginProviderStackView.frame.width - 5, height: facebookLoginProviderStackView.frame.height - 10)
         
     }
