@@ -37,7 +37,6 @@ class AddParkingView: UIViewController  {
     @IBAction func saveParking(_ sender: Any) {
         
         parking?.adresse = addressTF.text
-        parking?.idUser = ""
         parking?.nbrPlace = Int(availablePlacesTF.text!)
         parking?.prix = Float(priceTF.text!)
         

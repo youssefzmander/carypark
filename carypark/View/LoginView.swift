@@ -122,7 +122,6 @@ class LoginView: UIViewController {
     
     @objc func googleSignIn() {
         
-        startSpinner()
         
         GIDSignIn.sharedInstance.signIn(with: googleSignInConfig, presenting: self) { [self] user, error in
             guard error == nil else { return }
@@ -146,6 +145,8 @@ class LoginView: UIViewController {
         } else {
             role = "NormalUser"
         }
+        
+        self.startSpinner()
         
         UserViewModel().loginWithSocialApp(email: email!, name: name!, role: role!, completed: { success, user in
             if success {

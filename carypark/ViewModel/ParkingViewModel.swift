@@ -60,7 +60,7 @@ class ParkingViewModel {
                     "longitude": parking.longitude!,
                     "latitude": parking.latitude!,
                     "prix": parking.prix!,
-                    "idUser": parking.idUser!
+                    "user": UserDefaults.standard.string(forKey: "userId")!
                    ])
             .validate(statusCode: 200..<300)
             .validate(contentType: ["application/json"])
@@ -130,7 +130,7 @@ class ParkingViewModel {
             longitude: jsonItem["longitude"].doubleValue,
             latitude: jsonItem["latitude"].doubleValue,
             prix: jsonItem["prix"].floatValue,
-            idUser: jsonItem["idUser"].stringValue,
+            user: makeUser(jsonItem: jsonItem["user"]),
             reservations: reservations
         )
     }
@@ -140,6 +140,20 @@ class ParkingViewModel {
             _id: jsonItem["_id"].stringValue,
             dateEntre: Date(), //jsonItem["dateEntre"].stringValue,
             dateSortie: Date() //jsonItem["dateSortie"].stringValue,
+        )
+    }
+    
+    func makeUser(jsonItem: JSON) -> User {
+        User(
+            _id: jsonItem["_id"].stringValue,
+            fullName: jsonItem["fullName"].stringValue,
+            email: jsonItem["email"].stringValue,
+            cin: jsonItem["cin"].stringValue,
+            car: jsonItem["car"].stringValue,
+            address: jsonItem["address"].stringValue,
+            phone: jsonItem["phone"].stringValue,
+            role: jsonItem["role"].stringValue,
+            isVerified: jsonItem["isVerified"].boolValue
         )
     }
 }

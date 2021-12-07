@@ -53,6 +53,7 @@ class UserViewModel {
                     let jsonData = JSON(response.data!)
                     let user = self.makeUser(jsonItem: jsonData["user"])
                     UserDefaults.standard.setValue(jsonData["token"].stringValue, forKey: "userToken")
+                    UserDefaults.standard.setValue(user._id, forKey: "userId")
                     completed(true, user)
                 case let .failure(error):
                     debugPrint(error)
@@ -96,6 +97,7 @@ class UserViewModel {
                     
                     print("this is the new token value : " + jsonData["token"].stringValue)
                     UserDefaults.standard.setValue(jsonData["token"].stringValue, forKey: "userToken")
+                    UserDefaults.standard.setValue(user._id, forKey: "userId")
                     completed(true, user)
                 case let .failure(error):
                     debugPrint(error)

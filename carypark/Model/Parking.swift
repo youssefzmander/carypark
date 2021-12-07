@@ -9,14 +9,14 @@ import Foundation
 
 struct Parking: Encodable {
     
-    internal init(_id: String? = nil, adresse: String? = nil, nbrPlace: Int? = nil, longitude: Double? = nil, latitude: Double? = nil, prix: Float? = nil, idUser: String? = nil, reservations: [Reservation]? = nil) {
+    internal init(_id: String? = nil, adresse: String? = nil, nbrPlace: Int? = nil, longitude: Double? = nil, latitude: Double? = nil, prix: Float? = nil, user: User? = nil, reservations: [Reservation]? = nil) {
         self._id = _id
         self.adresse = adresse
         self.nbrPlace = nbrPlace
         self.longitude = longitude
         self.latitude = latitude
         self.prix = prix
-        self.idUser = idUser
+        self.user = user
         self.reservations = reservations
     }
     
@@ -26,7 +26,8 @@ struct Parking: Encodable {
     var longitude: Double?
     var latitude: Double?
     var prix: Float?
-    var idUser: String?
+    
+    var user : User?
     var reservations: [Reservation]?
     
 }

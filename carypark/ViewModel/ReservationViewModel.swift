@@ -11,9 +11,35 @@ import UIKit.UIImage
 
 class ReservationViewModel {
 
-    func getAllReservation(completed: @escaping (Bool, [Reservation]?) -> Void ) {
-        AF.request(Constants.serverUrl + "/reservation/",
-                   method: .get)
+    func getMyReservationsAsOwner(completed: @escaping (Bool, [Reservation]?) -> Void ) {
+        AF.request(Constants.serverUrl + "/reservation/owner-my",
+                   method: .post,
+                   parameters: [
+                    "user": UserDefaults.standard.string(forKey: "userId")
+                   ])
+            .validate(statusCode: 200..<300)
+            .validate(contentType: ["application/json"])
+            .responseData { response in
+                switch response.result {
+                case .success:
+                    var reservations : [Reservation]? = []
+                    for singleJsonItem in JSON(response.data!)["reservations"] {
+                        reservations!.append(self.makeReservation(jsonItem: singleJsonItem.1))
+                    }
+                    completed(true, reservations)
+                case let .failure(error):
+                    debugPrint(error)
+                    completed(false, nil)
+                }
+            }
+    }
+    
+    func getMyReservationsAsNormal(completed: @escaping (Bool, [Reservation]?) -> Void ) {
+        AF.request(Constants.serverUrl + "/reservation/normal-my",
+                   method: .post,
+                   parameters: [
+                    "user": UserDefaults.standard.string(forKey: "userId")
+                   ])
             .validate(statusCode: 200..<300)
             .validate(contentType: ["application/json"])
             .responseData { response in
@@ -58,7 +84,8 @@ class ReservationViewModel {
                    parameters: [
                     "dateEntre": reservation.dateEntre!,
                     "dateSortie": reservation.dateSortie!,
-                    "parking": reservation.parking!._id!
+                    "parking": reservation.parking!._id!,
+                    "user": UserDefaults.standard.string(forKey: "userId")!
                    ])
             .validate(statusCode: 200..<300)
             .validate(contentType: ["application/json"])
@@ -119,7 +146,8 @@ class ReservationViewModel {
             _id: jsonItem["_id"].stringValue,
             dateEntre: Date(), //jsonItem["dateEntre"].stringValue,
             dateSortie: Date(), //jsonItem["dateSortie"].stringValue,
-            parking: makeParking(jsonItem: jsonItem["parking"])
+            parking: makeParking(jsonItem: jsonItem["parking"]),
+            user: makeUser(jsonItem: jsonItem["user"])
         )
     }
     
@@ -130,8 +158,21 @@ class ReservationViewModel {
             nbrPlace: jsonItem["nbrPlace"].intValue,
             longitude: jsonItem["longitude"].doubleValue,
             latitude: jsonItem["latitude"].doubleValue,
-            prix: jsonItem["prix"].floatValue,
-            idUser: jsonItem["idUser"].stringValue
+            prix: jsonItem["prix"].floatValue
+        )
+    }
+    
+    func makeUser(jsonItem: JSON) -> User {
+        User(
+            _id: jsonItem["_id"].stringValue,
+            fullName: jsonItem["fullName"].stringValue,
+            email: jsonItem["email"].stringValue,
+            cin: jsonItem["cin"].stringValue,
+            car: jsonItem["car"].stringValue,
+            address: jsonItem["address"].stringValue,
+            phone: jsonItem["phone"].stringValue,
+            role: jsonItem["role"].stringValue,
+            isVerified: jsonItem["isVerified"].boolValue
         )
     }
 }

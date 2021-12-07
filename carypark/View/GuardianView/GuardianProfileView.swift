@@ -35,4 +35,12 @@ class GuardianProfileView: UIViewController  {
         UserDefaults.standard.set(nil, forKey: "userToken")
         self.performSegue(withIdentifier: "logoutSegue", sender:nil)
     }
+    
+    @IBAction func parkingHistory(_ sender: Any) {
+        self.tabBarController?.selectedIndex = 4
+    }
+    
+    @IBAction func incomingRides(_ sender: Any) {
+        self.tabBarController?.selectedIndex = 3
+    }
 }
