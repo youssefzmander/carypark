@@ -153,14 +153,15 @@ class MapView: UIViewController, CLLocationManagerDelegate  {
         ParkingViewModel().getParkingById(_id: pinAnnotation?.id) { success, responseParking in
             if success {
                 self.activeParking = responseParking
+                print(responseParking)
                 self.viewParkButton.isEnabled = true
                 
-                /*let sourceLocation =  CLLocationCoordinate2D(latitude: self.currentLocation!.latitude, longitude: self.currentLocation!.longitude)
+                let sourceLocation =  CLLocationCoordinate2D(latitude: self.currentLocation!.latitude, longitude: self.currentLocation!.longitude)
                 let destinationLocation = CLLocationCoordinate2D(latitude: pinAnnotation!.coordinate.latitude, longitude: pinAnnotation!.coordinate.longitude)
-                */
+      
                 
-                let sourceLocation = CLLocationCoordinate2D(latitude: 28.704060, longitude: 77.102493)
-                let destinationLocation = CLLocationCoordinate2D(latitude: 28.459497, longitude: 77.026634)
+                /*let sourceLocation = CLLocationCoordinate2D(latitude: 28.704060, longitude: 77.102493)
+                let destinationLocation = CLLocationCoordinate2D(latitude: 28.459497, longitude: 77.026634)*/
                 
                 self.createPath(sourceLocation: sourceLocation, destinationLocation: destinationLocation)
                 self.mapView.delegate = self

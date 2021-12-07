@@ -9,13 +9,15 @@ import Foundation
 
 struct Reservation: Encodable {
     
-    internal init(_id: String? = nil, dateEntre: Date? = nil, dateSortie: Date? = nil, parking: Parking? = nil, user: User? = nil) {
+    internal init(_id: String? = nil, dateEntre: Date? = nil, dateSortie: Date? = nil, parking: Parking? = nil, user: User? = nil, userFromPark: User) {
         self._id = _id
         self.dateEntre = dateEntre
         self.dateSortie = dateSortie
         self.parking = parking
         self.user = user
+        self.userFromPark = userFromPark
     }
+    
     
     var _id: String?
     var dateEntre: Date?
@@ -23,4 +25,5 @@ struct Reservation: Encodable {
     
     var parking: Parking?
     var user: User?
+    var userFromPark: User
 }

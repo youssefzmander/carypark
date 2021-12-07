@@ -123,6 +123,9 @@ class ParkingViewModel {
         for singleJsonItem in jsonItem["reservations"] {
             reservations.append(makeReservation(jsonItem: singleJsonItem.1))
         }
+        print("---------------")
+        print(jsonItem["user"] )
+        print("---------------")
         return Parking(
             _id: jsonItem["_id"].stringValue,
             adresse: jsonItem["adresse"].stringValue,
@@ -139,7 +142,9 @@ class ParkingViewModel {
         Reservation(
             _id: jsonItem["_id"].stringValue,
             dateEntre: Date(), //jsonItem["dateEntre"].stringValue,
-            dateSortie: Date() //jsonItem["dateSortie"].stringValue,
+            dateSortie: Date(), //jsonItem["dateSortie"].stringValue,
+            user: makeUser(jsonItem: jsonItem["user"]),
+            userFromPark: makeUser(jsonItem: jsonItem["userFromPark"])
         )
     }
     

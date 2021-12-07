@@ -33,7 +33,8 @@ class ReservationView: UIViewController  {
     
     // actions
     @IBAction func bookSpace(_ sender: Any) {
-        let reservation = Reservation(dateEntre: checkInDatePicker.date, dateSortie: checkOutDatePicker.date, parking: parking)
+
+        let reservation = Reservation(dateEntre: checkInDatePicker.date, dateSortie: checkOutDatePicker.date, parking: parking, userFromPark: (parking?.user!)!)
         
         ReservationViewModel().addReservation(reservation: reservation) { success in
             if success {

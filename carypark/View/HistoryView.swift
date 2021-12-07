@@ -54,14 +54,14 @@ class HistoryView: UIViewController, UITableViewDataSource, UITableViewDelegate 
     
     // methods
     func initializeHistory() {
-        ReservationViewModel().getAllReservation { success, reservationsFromRep in
+        ReservationViewModel().getMyReservationsAsNormal(completed: { success, reservationsFromRep in
             if success {
                 self.reservations = reservationsFromRep!
                 self.tableView.reloadData()
             } else {
                 self.present(Alert.makeAlert(titre: "Error", message: "Could not load history"),animated: true)
             }
-        }
+        })
     }
     
     // actions

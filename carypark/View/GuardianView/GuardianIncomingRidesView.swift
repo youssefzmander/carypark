@@ -54,7 +54,7 @@ class GuardianIncomingRides: UIViewController, UITableViewDataSource, UITableVie
     
     // methods
     func initializeHistory() {
-        ReservationViewModel().getMyReservatio { success, reservationsFromRep in
+        ReservationViewModel().getMyReservationsAsOwner(completed: { success, reservationsFromRep in
             if success {
                 self.reservations = reservationsFromRep!
                 self.tableView.reloadData()
@@ -62,7 +62,7 @@ class GuardianIncomingRides: UIViewController, UITableViewDataSource, UITableVie
                 self.present(Alert.makeAlert(titre: "Error", message: "Could not load history"),animated: true)
             }
         }
-    }
+    )}
     
     // actions
     

@@ -9,7 +9,7 @@ import Foundation
 
 struct User: Encodable {
     
-    internal init(_id: String? = nil, fullName: String? = nil, email: String? = nil, password: String? = nil, cin: String? = nil, car: String? = nil, address: String? = nil, phone: String? = nil, role: String? = nil, isVerified: Bool? = nil, reservation: [Reservation]? = nil, parking: [Parking]? = nil) {
+    internal init(_id: String? = nil, fullName: String? = nil, email: String? = nil, password: String? = nil, cin: String? = nil, car: String? = nil, address: String? = nil, phone: String? = nil, role: String? = nil, photo: String? = nil, isVerified: Bool? = nil, reservation: [Reservation]? = nil, parking: [Parking]? = nil) {
         self._id = _id
         self.fullName = fullName
         self.email = email
@@ -19,11 +19,11 @@ struct User: Encodable {
         self.address = address
         self.phone = phone
         self.role = role
+        self.photo = photo
         self.isVerified = isVerified
         self.reservation = reservation
         self.parking = parking
     }
-    
     
     var _id: String?
     var fullName: String?
@@ -34,6 +34,7 @@ struct User: Encodable {
     var address: String?
     var phone: String?
     var role: String?
+    var photo: String?
     var isVerified: Bool?
     
     var reservation: [Reservation]?

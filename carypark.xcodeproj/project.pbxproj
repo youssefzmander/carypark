@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		103B5770275E6CB700D2B117 /* GuardianIncomingRidesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103B576F275E6CB700D2B117 /* GuardianIncomingRidesView.swift */; };
 		103B5772275E6DE500D2B117 /* GuardianHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103B5771275E6DE500D2B117 /* GuardianHistoryView.swift */; };
+		10AAE5D5275EF25100DF3A13 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AAE5D4275EF25100DF3A13 /* ImageLoader.swift */; };
 		14AD2544275A939B0032AA51 /* GuardianProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AD2543275A939B0032AA51 /* GuardianProfileView.swift */; };
 		14AD2546275A9B3F0032AA51 /* ReservationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AD2545275A9B3F0032AA51 /* ReservationView.swift */; };
 		14AD2548275AA5F60032AA51 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AD2547275AA5F60032AA51 /* HistoryView.swift */; };
@@ -51,6 +52,7 @@
 		02666E7841450AFEC1C95FE5 /* Pods-carypark.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-carypark.release.xcconfig"; path = "Target Support Files/Pods-carypark/Pods-carypark.release.xcconfig"; sourceTree = "<group>"; };
 		103B576F275E6CB700D2B117 /* GuardianIncomingRidesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuardianIncomingRidesView.swift; sourceTree = "<group>"; };
 		103B5771275E6DE500D2B117 /* GuardianHistoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuardianHistoryView.swift; sourceTree = "<group>"; };
+		10AAE5D4275EF25100DF3A13 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		14AD2543275A939B0032AA51 /* GuardianProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuardianProfileView.swift; sourceTree = "<group>"; };
 		14AD2545275A9B3F0032AA51 /* ReservationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationView.swift; sourceTree = "<group>"; };
 		14AD2547275AA5F60032AA51 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				8DA6149827578B4400EFE1EB /* Spinner.swift */,
 				8D688EC8275907DD00872C5E /* PinAnnotation.swift */,
 				14AD2549275AD1CF0032AA51 /* Extensions.swift */,
+				10AAE5D4275EF25100DF3A13 /* ImageLoader.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 				8DA614A827578B5700EFE1EB /* LoginView.swift in Sources */,
 				103B5770275E6CB700D2B117 /* GuardianIncomingRidesView.swift in Sources */,
 				103B5772275E6DE500D2B117 /* GuardianHistoryView.swift in Sources */,
+				10AAE5D5275EF25100DF3A13 /* ImageLoader.swift in Sources */,
 				8DD55395275A60AF00392CAD /* AddParkingView.swift in Sources */,
 				8DA6149A27578B4400EFE1EB /* Alert.swift in Sources */,
 				8D688ECB27593EAF00872C5E /* ParkingDetailsView.swift in Sources */,

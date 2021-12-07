@@ -54,7 +54,7 @@ class GuardianHistoryView: UIViewController, UITableViewDataSource, UITableViewD
     
     // methods
     func initializeHistory() {
-        ReservationViewModel().getAllReservation { success, reservationsFromRep in
+        ReservationViewModel().getMyReservationsAsOwner{ success, reservationsFromRep in
             if success {
                 self.reservations = reservationsFromRep!
                 self.tableView.reloadData()

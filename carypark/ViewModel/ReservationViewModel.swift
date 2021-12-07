@@ -23,6 +23,7 @@ class ReservationViewModel {
                 switch response.result {
                 case .success:
                     var reservations : [Reservation]? = []
+                    print(JSON(response.data!)["reservations"])
                     for singleJsonItem in JSON(response.data!)["reservations"] {
                         reservations!.append(self.makeReservation(jsonItem: singleJsonItem.1))
                     }
@@ -45,10 +46,16 @@ class ReservationViewModel {
             .responseData { response in
                 switch response.result {
                 case .success:
+                    
+                    
                     var reservations : [Reservation]? = []
+                    
+                 
                     for singleJsonItem in JSON(response.data!)["reservations"] {
                         reservations!.append(self.makeReservation(jsonItem: singleJsonItem.1))
                     }
+                    
+                    
                     completed(true, reservations)
                 case let .failure(error):
                     debugPrint(error)
@@ -85,7 +92,8 @@ class ReservationViewModel {
                     "dateEntre": reservation.dateEntre!,
                     "dateSortie": reservation.dateSortie!,
                     "parking": reservation.parking!._id!,
-                    "user": UserDefaults.standard.string(forKey: "userId")!
+                    "user": UserDefaults.standard.string(forKey: "userId")!,
+                    "userFromPark": reservation.userFromPark._id!
                    ])
             .validate(statusCode: 200..<300)
             .validate(contentType: ["application/json"])
@@ -142,12 +150,13 @@ class ReservationViewModel {
     }
     
     func makeReservation(jsonItem: JSON) -> Reservation {
-        Reservation(
+        return Reservation(
             _id: jsonItem["_id"].stringValue,
             dateEntre: Date(), //jsonItem["dateEntre"].stringValue,
             dateSortie: Date(), //jsonItem["dateSortie"].stringValue,
             parking: makeParking(jsonItem: jsonItem["parking"]),
-            user: makeUser(jsonItem: jsonItem["user"])
+            user: makeUser(jsonItem: jsonItem["user"]),
+            userFromPark: makeUser(jsonItem: jsonItem["userFromPark"])
         )
     }
     
@@ -158,12 +167,13 @@ class ReservationViewModel {
             nbrPlace: jsonItem["nbrPlace"].intValue,
             longitude: jsonItem["longitude"].doubleValue,
             latitude: jsonItem["latitude"].doubleValue,
-            prix: jsonItem["prix"].floatValue
+            prix: jsonItem["prix"].floatValue,
+            user: makeUser(jsonItem: jsonItem["user"])
         )
     }
     
     func makeUser(jsonItem: JSON) -> User {
-        User(
+        return User(
             _id: jsonItem["_id"].stringValue,
             fullName: jsonItem["fullName"].stringValue,
             email: jsonItem["email"].stringValue,

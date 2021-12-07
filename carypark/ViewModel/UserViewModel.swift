@@ -11,6 +11,30 @@ import UIKit.UIImage
 
 class UserViewModel {
     
+    func uploadImageProfile( uiImage: UIImage, completed: @escaping (Bool) -> Void) {
+        AF.upload(multipartFormData: { multipartFormData in
+            multipartFormData.append(uiImage.jpegData(compressionQuality: 0.5)!, withName: "image" , fileName: "image.jpeg", mimeType: "image/jpeg")
+            
+            for (key, value) in ["user" : UserDefaults.standard.string(forKey: "userId")] {
+                multipartFormData.append((value!.data(using: .utf8))!, withName: key)
+            }
+            
+        },to: Constants.serverUrl + "/user/editProfilePic",
+                  method: .post)
+            .validate(statusCode: 200..<300)
+            .validate(contentType: ["application/json"])
+            .responseData { response in
+                switch response.result {
+                case .success:
+                    print("Success")
+                    completed(true)
+                case let .failure(error):
+                    completed(false)
+                    print(error)
+                }
+            }
+    }
+    
     func signUp(user: User, completed: @escaping (Bool) -> Void ) {
         print(user)
         
@@ -196,6 +220,7 @@ class UserViewModel {
             address: jsonItem["address"].stringValue,
             phone: jsonItem["phone"].stringValue,
             role: jsonItem["role"].stringValue,
+            photo: jsonItem["photo"].stringValue,
             isVerified: jsonItem["isVerified"].boolValue
         )
     }
