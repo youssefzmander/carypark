@@ -21,6 +21,50 @@ class MapView: UIViewController, CLLocationManagerDelegate  {
     @IBOutlet weak var viewParkButton: UIButton!
     
     // protocols
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        
+        let pinAnnotation = view.annotation as? PinAnnotation
+        
+        ParkingViewModel().getParkingById(_id: pinAnnotation?.id) { success, responseParking in
+            if success {
+                self.activeParking = responseParking
+                self.viewParkButton.isEnabled = true
+                
+                let sourceLocation =  CLLocationCoordinate2D(latitude: self.currentLocation!.latitude, longitude: self.currentLocation!.longitude)
+                let destinationLocation = CLLocationCoordinate2D(latitude: pinAnnotation!.coordinate.latitude, longitude: pinAnnotation!.coordinate.longitude)
+      
+                /*let sourceLocation = CLLocationCoordinate2D(latitude: 28.704060, longitude: 77.102493)
+                let destinationLocation = CLLocationCoordinate2D(latitude: 28.459497, longitude: 77.026634)*/
+                
+                self.createPath(sourceLocation: sourceLocation, destinationLocation: destinationLocation)
+                self.mapView.delegate = self
+                
+            } else {
+                self.present(Alert.makeAlert(titre: "Error", message: "Could not load parking"), animated: true)
+            }
+        }
+    }
+    
+    internal func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is PinAnnotation {
+            let pinAnnotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "")
+            
+            pinAnnotationView.tintColor = UIColor(named: "accentColor")
+            pinAnnotationView.isDraggable = true
+            pinAnnotationView.canShowCallout = true
+            pinAnnotationView.animatesDrop = true
+            
+            return pinAnnotationView
+        }
+        
+        return nil
+    }
+    
+    internal func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if let annotation = view.annotation as? PinAnnotation {
+            mapView.removeAnnotation(annotation)
+        }
+    }
     
     // life cycle
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -33,9 +77,9 @@ class MapView: UIViewController, CLLocationManagerDelegate  {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewParkButton.isEnabled = false
-        
         initializeLocations()
+        
+        viewParkButton.isEnabled = false
         
         self.locationManager.requestAlwaysAuthorization()
         self.locationManager.requestWhenInUseAuthorization()
@@ -52,7 +96,7 @@ class MapView: UIViewController, CLLocationManagerDelegate  {
         mapView.isScrollEnabled = true
         
         // User location
-        let noLocation = CLLocationCoordinate2D()
+        //let noLocation = CLLocationCoordinate2D()
         
         // Esprit location
         let espritLocation = CLLocationCoordinate2D(latitude: 36.897901,longitude: 10.190886)
@@ -143,53 +187,6 @@ class MapView: UIViewController, CLLocationManagerDelegate  {
             
             self.mapView.setRegion(MKCoordinateRegion(rect), animated: true)
             
-        }
-    }
-    
-    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        
-        let pinAnnotation = view.annotation as? PinAnnotation
-        
-        ParkingViewModel().getParkingById(_id: pinAnnotation?.id) { success, responseParking in
-            if success {
-                self.activeParking = responseParking
-                print(responseParking)
-                self.viewParkButton.isEnabled = true
-                
-                let sourceLocation =  CLLocationCoordinate2D(latitude: self.currentLocation!.latitude, longitude: self.currentLocation!.longitude)
-                let destinationLocation = CLLocationCoordinate2D(latitude: pinAnnotation!.coordinate.latitude, longitude: pinAnnotation!.coordinate.longitude)
-      
-                
-                /*let sourceLocation = CLLocationCoordinate2D(latitude: 28.704060, longitude: 77.102493)
-                let destinationLocation = CLLocationCoordinate2D(latitude: 28.459497, longitude: 77.026634)*/
-                
-                self.createPath(sourceLocation: sourceLocation, destinationLocation: destinationLocation)
-                self.mapView.delegate = self
-                
-            } else {
-                self.present(Alert.makeAlert(titre: "Error", message: "Could not load parking"), animated: true)
-            }
-        }
-    }
-    
-    internal func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        if annotation is PinAnnotation {
-            let pinAnnotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "")
-            
-            pinAnnotationView.tintColor = UIColor(named: "accentColor")
-            pinAnnotationView.isDraggable = true
-            pinAnnotationView.canShowCallout = true
-            pinAnnotationView.animatesDrop = true
-            
-            return pinAnnotationView
-        }
-        
-        return nil
-    }
-    
-    internal func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        if let annotation = view.annotation as? PinAnnotation {
-            mapView.removeAnnotation(annotation)
         }
     }
     

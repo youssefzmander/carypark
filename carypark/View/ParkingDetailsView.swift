@@ -41,7 +41,11 @@ class ParkingDetailsView: UIViewController  {
     
     // actions
     @IBAction func makeReservation(_ sender: Any) {
-        performSegue(withIdentifier: "makeReservationSegue", sender: parking)
+        if parking?.nbrPlace == 0 {
+            self.present(Alert.makeAlert(titre: "Warning", message: "No more places !"),animated: true)
+        } else {
+            performSegue(withIdentifier: "makeReservationSegue", sender: parking)
+        }
     }
     
 }

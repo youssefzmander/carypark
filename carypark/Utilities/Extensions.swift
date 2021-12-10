@@ -27,4 +27,13 @@ import UIKit
             layer.borderWidth = newValue
         }
     }
+    
+    @IBInspectable var cornerRadius: CGFloat {
+        get {
+            return layer.cornerRadius
+        }
+        set {
+            layer.cornerRadius = newValue
+        }
+    }
 }

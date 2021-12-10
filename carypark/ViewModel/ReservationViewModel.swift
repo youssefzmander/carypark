@@ -23,7 +23,6 @@ class ReservationViewModel {
                 switch response.result {
                 case .success:
                     var reservations : [Reservation]? = []
-                    print(JSON(response.data!)["reservations"])
                     for singleJsonItem in JSON(response.data!)["reservations"] {
                         reservations!.append(self.makeReservation(jsonItem: singleJsonItem.1))
                     }
@@ -46,15 +45,11 @@ class ReservationViewModel {
             .responseData { response in
                 switch response.result {
                 case .success:
-                    
-                    
                     var reservations : [Reservation]? = []
                     
-                 
                     for singleJsonItem in JSON(response.data!)["reservations"] {
                         reservations!.append(self.makeReservation(jsonItem: singleJsonItem.1))
                     }
-                    
                     
                     completed(true, reservations)
                 case let .failure(error):
@@ -69,7 +64,8 @@ class ReservationViewModel {
                    method: .get,
                    parameters: [
                     "_id": _id!
-                   ])
+                   ],
+                   encoding: JSONEncoding.default)
             .validate(statusCode: 200..<300)
             .validate(contentType: ["application/json"])
             .responseData { response in
@@ -92,30 +88,10 @@ class ReservationViewModel {
                     "dateEntre": reservation.dateEntre!,
                     "dateSortie": reservation.dateSortie!,
                     "parking": reservation.parking!._id!,
+                    "disabledPark": reservation.disabledPark,
+                    "specialGuard": reservation.specialGuard,
                     "user": UserDefaults.standard.string(forKey: "userId")!,
                     "userFromPark": reservation.userFromPark._id!
-                   ])
-            .validate(statusCode: 200..<300)
-            .validate(contentType: ["application/json"])
-            .responseData { response in
-                switch response.result {
-                case .success:
-                    completed(true)
-                case let .failure(error):
-                    print(error)
-                    completed(false)
-                }
-            }
-    }
-    
-    func editReservation(reservation: Reservation, completed: @escaping (Bool) -> Void ) {
-        AF.request(Constants.serverUrl + "/reservation/",
-                   method: .put,
-                   parameters: [
-                    "_id": reservation._id!,
-                    "dateEntre": reservation.dateEntre!,
-                    "dateSortie": reservation.dateSortie!,
-                    "parking": reservation.parking!._id!
                    ])
             .validate(statusCode: 200..<300)
             .validate(contentType: ["application/json"])
@@ -152,8 +128,10 @@ class ReservationViewModel {
     func makeReservation(jsonItem: JSON) -> Reservation {
         return Reservation(
             _id: jsonItem["_id"].stringValue,
-            dateEntre: Date(), //jsonItem["dateEntre"].stringValue,
-            dateSortie: Date(), //jsonItem["dateSortie"].stringValue,
+            dateEntre: DateUtils.formatFromString(string: jsonItem["dateEntre"].stringValue),
+            dateSortie: DateUtils.formatFromString(string: jsonItem["dateSortie"].stringValue),
+            disabledPark: jsonItem["disabledPark"].boolValue,
+            specialGuard: jsonItem["specialGuard"].boolValue,
             parking: makeParking(jsonItem: jsonItem["parking"]),
             user: makeUser(jsonItem: jsonItem["user"]),
             userFromPark: makeUser(jsonItem: jsonItem["userFromPark"])
@@ -182,6 +160,7 @@ class ReservationViewModel {
             address: jsonItem["address"].stringValue,
             phone: jsonItem["phone"].stringValue,
             role: jsonItem["role"].stringValue,
+            photo: jsonItem["photo"].stringValue,
             isVerified: jsonItem["isVerified"].boolValue
         )
     }

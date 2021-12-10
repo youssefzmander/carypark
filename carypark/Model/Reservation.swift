@@ -9,19 +9,11 @@ import Foundation
 
 struct Reservation: Encodable {
     
-    internal init(_id: String? = nil, dateEntre: Date? = nil, dateSortie: Date? = nil, parking: Parking? = nil, user: User? = nil, userFromPark: User) {
-        self._id = _id
-        self.dateEntre = dateEntre
-        self.dateSortie = dateSortie
-        self.parking = parking
-        self.user = user
-        self.userFromPark = userFromPark
-    }
-    
-    
     var _id: String?
     var dateEntre: Date?
     var dateSortie: Date?
+    var disabledPark: Bool
+    var specialGuard: Bool
     
     var parking: Parking?
     var user: User?

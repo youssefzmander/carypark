@@ -31,6 +31,29 @@ class ParkingViewModel {
             }
     }
     
+    func getMyParkings(completed: @escaping (Bool, [Parking]?) -> Void ) {
+        AF.request(Constants.serverUrl + "/parking/my",
+                   method: .post,
+                   parameters: [
+                    "user": UserDefaults.standard.string(forKey: "userId")
+                   ])
+            .validate(statusCode: 200..<300)
+            .validate(contentType: ["application/json"])
+            .responseData { response in
+                switch response.result {
+                case .success:
+                    var parkings : [Parking]? = []
+                    for singleJsonItem in JSON(response.data!)["parkings"] {
+                        parkings!.append(self.makeParking(jsonItem: singleJsonItem.1))
+                    }
+                    completed(true, parkings)
+                case let .failure(error):
+                    debugPrint(error)
+                    completed(false, nil)
+                }
+            }
+    }
+    
     func getParkingById(_id: String?, completed: @escaping (Bool, Parking?) -> Void ) {
         AF.request(Constants.serverUrl + "/parking/with-id",
                    method: .post,
@@ -104,7 +127,8 @@ class ParkingViewModel {
                    method: .delete,
                    parameters: [
                     "_id": _id!
-                   ])
+                   ],
+                   encoding: JSONEncoding.default)
             .validate(statusCode: 200..<300)
             .validate(contentType: ["application/json"])
             .responseData { response in
@@ -141,8 +165,10 @@ class ParkingViewModel {
     func makeReservation(jsonItem: JSON) -> Reservation {
         Reservation(
             _id: jsonItem["_id"].stringValue,
-            dateEntre: Date(), //jsonItem["dateEntre"].stringValue,
-            dateSortie: Date(), //jsonItem["dateSortie"].stringValue,
+            dateEntre: DateUtils.formatFromString(string: jsonItem["dateEntre"].stringValue),
+            dateSortie: DateUtils.formatFromString(string: jsonItem["dateSortie"].stringValue),
+            disabledPark: jsonItem["disabledPark"].boolValue,
+            specialGuard: jsonItem["specialGuard"].boolValue,
             user: makeUser(jsonItem: jsonItem["user"]),
             userFromPark: makeUser(jsonItem: jsonItem["userFromPark"])
         )
@@ -158,6 +184,7 @@ class ParkingViewModel {
             address: jsonItem["address"].stringValue,
             phone: jsonItem["phone"].stringValue,
             role: jsonItem["role"].stringValue,
+            photo: jsonItem["photo"].stringValue,
             isVerified: jsonItem["isVerified"].boolValue
         )
     }

@@ -13,8 +13,8 @@ protocol ModalDelegate {
     func initProfileFromEdit()
 }
 
-class ProfileView: UIViewController, ModalDelegate {
-
+class ProfileView: UIViewController, ModalDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+    
     // variables
     let token = UserDefaults.standard.string(forKey: "userToken")!
     var user : User?
@@ -24,6 +24,7 @@ class ProfileView: UIViewController, ModalDelegate {
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var phoneTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
+    @IBOutlet weak var imageUser: UIImageView!
     
     // protocols
     func initProfileFromEdit() {
@@ -40,6 +41,10 @@ class ProfileView: UIViewController, ModalDelegate {
         initializeProfile()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        SecondModalTransitionMediator.instance.sendPopoverDismissed(modelChanged: true)
+    }
+    
     // methods
     func initializeProfile() {
         print("initializing profile")
@@ -50,11 +55,72 @@ class ProfileView: UIViewController, ModalDelegate {
                 self.emailTF.text = self.user?.email
                 self.phoneTF.text = self.user?.phone
                 self.passwordTF.text = "****"
+                
+                if self.user?.photo != nil {
+                    ImageLoader.shared.loadImage(identifier:(self.user?.photo)!, url: "http://localhost:3000/img/"+(self.user?.photo)!, completion: {image in
+                        self.imageUser.image = image
+                        
+                    })
+                }
+                
             } else {
                 self.present(Alert.makeAlert(titre: "Error", message: "Could not verify token"), animated: true
                 )
             }
         })
+    }
+    
+    @IBAction func changePhoto(_ sender: Any) {
+        showActionSheet()
+    }
+    
+    func showActionSheet(){
+        
+        let actionSheetController: UIAlertController = UIAlertController(title: NSLocalizedString("Upload Image", comment: ""), message: nil, preferredStyle: .actionSheet)
+        actionSheetController.view.tintColor = UIColor.black
+        let cancelActionButton: UIAlertAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { action -> Void in
+            print("Cancel")
+        }
+        actionSheetController.addAction(cancelActionButton)
+        
+        let saveActionButton: UIAlertAction = UIAlertAction(title: NSLocalizedString("Take Photo", comment: ""), style: .default)
+        { action -> Void in
+            //self.camera()
+        }
+        actionSheetController.addAction(saveActionButton)
+        
+        let deleteActionButton: UIAlertAction = UIAlertAction(title: NSLocalizedString("Choose From Gallery", comment: ""), style: .default)
+        { action -> Void in
+            self.gallery()
+        }
+        
+        actionSheetController.addAction(deleteActionButton)
+        self.present(actionSheetController, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        guard let selectedImage = info[.originalImage] as? UIImage else {
+            
+            return
+        }
+        
+        UserViewModel().uploadImageProfile(uiImage: selectedImage,completed: { success in
+            if success {
+                self.initializeProfile()
+            }
+        })
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func gallery()
+    {
+        let myPickerControllerGallery = UIImagePickerController()
+        myPickerControllerGallery.delegate = self
+        myPickerControllerGallery.sourceType = UIImagePickerController.SourceType.photoLibrary
+        myPickerControllerGallery.allowsEditing = true
+        self.present(myPickerControllerGallery, animated: true, completion: nil)
     }
     
     // actions

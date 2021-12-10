@@ -10,6 +10,9 @@
 		103B5770275E6CB700D2B117 /* GuardianIncomingRidesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103B576F275E6CB700D2B117 /* GuardianIncomingRidesView.swift */; };
 		103B5772275E6DE500D2B117 /* GuardianHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103B5771275E6DE500D2B117 /* GuardianHistoryView.swift */; };
 		10AAE5D5275EF25100DF3A13 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AAE5D4275EF25100DF3A13 /* ImageLoader.swift */; };
+		10E6EEF72763913D00AA5416 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E6EEF62763913D00AA5416 /* DateUtils.swift */; };
+		10E6EEF92763CB6000AA5416 /* ModalTransitionMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E6EEF82763CB6000AA5416 /* ModalTransitionMediator.swift */; };
+		10E6EEFB2763D5B800AA5416 /* SecondModalTransitionMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E6EEFA2763D5B800AA5416 /* SecondModalTransitionMediator.swift */; };
 		14AD2544275A939B0032AA51 /* GuardianProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AD2543275A939B0032AA51 /* GuardianProfileView.swift */; };
 		14AD2546275A9B3F0032AA51 /* ReservationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AD2545275A9B3F0032AA51 /* ReservationView.swift */; };
 		14AD2548275AA5F60032AA51 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AD2547275AA5F60032AA51 /* HistoryView.swift */; };
@@ -53,6 +56,9 @@
 		103B576F275E6CB700D2B117 /* GuardianIncomingRidesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuardianIncomingRidesView.swift; sourceTree = "<group>"; };
 		103B5771275E6DE500D2B117 /* GuardianHistoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuardianHistoryView.swift; sourceTree = "<group>"; };
 		10AAE5D4275EF25100DF3A13 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		10E6EEF62763913D00AA5416 /* DateUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
+		10E6EEF82763CB6000AA5416 /* ModalTransitionMediator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalTransitionMediator.swift; sourceTree = "<group>"; };
+		10E6EEFA2763D5B800AA5416 /* SecondModalTransitionMediator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondModalTransitionMediator.swift; sourceTree = "<group>"; };
 		14AD2543275A939B0032AA51 /* GuardianProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuardianProfileView.swift; sourceTree = "<group>"; };
 		14AD2545275A9B3F0032AA51 /* ReservationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationView.swift; sourceTree = "<group>"; };
 		14AD2547275AA5F60032AA51 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
@@ -210,6 +216,9 @@
 				8D688EC8275907DD00872C5E /* PinAnnotation.swift */,
 				14AD2549275AD1CF0032AA51 /* Extensions.swift */,
 				10AAE5D4275EF25100DF3A13 /* ImageLoader.swift */,
+				10E6EEF62763913D00AA5416 /* DateUtils.swift */,
+				10E6EEF82763CB6000AA5416 /* ModalTransitionMediator.swift */,
+				10E6EEFA2763D5B800AA5416 /* SecondModalTransitionMediator.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -355,10 +364,12 @@
 				8D688ECB27593EAF00872C5E /* ParkingDetailsView.swift in Sources */,
 				8D688EC32758EE6400872C5E /* ReservationViewModel.swift in Sources */,
 				8D688EBF2758EE1A00872C5E /* Parking.swift in Sources */,
+				10E6EEF72763913D00AA5416 /* DateUtils.swift in Sources */,
 				14AD2546275A9B3F0032AA51 /* ReservationView.swift in Sources */,
 				8DFC6A6B2757DB0600DA0175 /* SettingsView.swift in Sources */,
 				14AD254C275B6E680032AA51 /* TabBarController.swift in Sources */,
 				8DA614A927578B5700EFE1EB /* PasswordResetView.swift in Sources */,
+				10E6EEF92763CB6000AA5416 /* ModalTransitionMediator.swift in Sources */,
 				8DA6149E27578B4A00EFE1EB /* User.swift in Sources */,
 				8DA6147B275789F200EFE1EB /* AppDelegate.swift in Sources */,
 				8DA6147D275789F200EFE1EB /* SceneDelegate.swift in Sources */,
@@ -375,6 +386,7 @@
 				14AD254A275AD1CF0032AA51 /* Extensions.swift in Sources */,
 				8DD55393275A607700392CAD /* GuardianMapView.swift in Sources */,
 				8DA614B027578B5700EFE1EB /* PaymentView.swift in Sources */,
+				10E6EEFB2763D5B800AA5416 /* SecondModalTransitionMediator.swift in Sources */,
 				8D688EBD2758EDF700872C5E /* ParkingViewModel.swift in Sources */,
 				8DA614AB27578B5700EFE1EB /* ResetCodeView.swift in Sources */,
 			);

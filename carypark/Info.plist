@@ -24,6 +24,16 @@
 				<string>fb637625473914515</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>tn.esprit.carypark</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>tn.esprit.carypark.payments</string>
+			</array>
+		</dict>
 	</array>
 	<key>FacebookAppID</key>
 	<string>637625473914515</string>

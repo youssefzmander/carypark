@@ -26,6 +26,6 @@ class SettingsView: UIViewController {
     }
     
     @IBAction func parkingHistory(_ sender: Any) {
-        self.tabBarController?.selectedIndex = 2
+        self.tabBarController?.selectedIndex = 0
     }
 }

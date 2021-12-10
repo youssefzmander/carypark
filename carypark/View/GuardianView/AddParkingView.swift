@@ -16,9 +16,6 @@ class AddParkingView: UIViewController  {
     @IBOutlet weak var addressTF: UITextField!
     @IBOutlet weak var priceTF: UITextField!
     @IBOutlet weak var availablePlacesTF: UITextField!
-    @IBOutlet weak var startDatePicker: UIDatePicker!
-    @IBOutlet weak var endDatePicker: UIDatePicker!
-    
     
     // protocols
     
@@ -26,8 +23,10 @@ class AddParkingView: UIViewController  {
     // life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print(parking)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        ModalTransitionMediator.instance.sendPopoverDismissed(modelChanged: true)
     }
     
     // methods
@@ -35,6 +34,16 @@ class AddParkingView: UIViewController  {
     
     // actions
     @IBAction func saveParking(_ sender: Any) {
+        
+        if (addressTF.text!.isEmpty || priceTF.text!.isEmpty || availablePlacesTF.text!.isEmpty){
+            self.present(Alert.makeAlert(titre: "Warning", message: "You must to fill all the fields"), animated: true)
+            return
+        }
+        
+        if (Int(priceTF.text!)! < 0 ){
+            self.present(Alert.makeAlert(titre: "Warning", message: "Price should be positive"), animated: true)
+            return
+        }
         
         parking?.adresse = addressTF.text
         parking?.nbrPlace = Int(availablePlacesTF.text!)

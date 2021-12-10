@@ -9,8 +9,11 @@ import Foundation
 import UIKit
 import FBSDKLoginKit
 
-class GuardianProfileView: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate  {
+class GuardianProfileView: UIViewController, SecondModalTransitionListener  {
+
+    
     // variables
+    
     
     // iboutlets
     @IBOutlet weak var profileName: UILabel!
@@ -21,8 +24,12 @@ class GuardianProfileView: UIViewController, UIImagePickerControllerDelegate & U
     // life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        SecondModalTransitionMediator.instance.setListener(listener: self)
         initializeProfile()
+    }
     
+    func popoverDismissed() {
+        initializeProfile()
     }
     
     
@@ -52,60 +59,6 @@ class GuardianProfileView: UIViewController, UIImagePickerControllerDelegate & U
         
         UserDefaults.standard.set(nil, forKey: "userToken")
         self.performSegue(withIdentifier: "logoutSegue", sender:nil)
-    }
-    
-    @IBAction func changePhoto(_ sender: Any) {
-        
-        showActionSheet()
-    }
-    
-    func showActionSheet(){
-
-        let actionSheetController: UIAlertController = UIAlertController(title: NSLocalizedString("Upload Image", comment: ""), message: nil, preferredStyle: .actionSheet)
-        actionSheetController.view.tintColor = UIColor.black
-        let cancelActionButton: UIAlertAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { action -> Void in
-            print("Cancel")
-        }
-        actionSheetController.addAction(cancelActionButton)
-
-        let saveActionButton: UIAlertAction = UIAlertAction(title: NSLocalizedString("Take Photo", comment: ""), style: .default)
-        { action -> Void in
-            //self.camera()
-        }
-        actionSheetController.addAction(saveActionButton)
-
-        let deleteActionButton: UIAlertAction = UIAlertAction(title: NSLocalizedString("Choose From Gallery", comment: ""), style: .default)
-        { action -> Void in
-            self.gallery()
-        }
-        
-        actionSheetController.addAction(deleteActionButton)
-        self.present(actionSheetController, animated: true, completion: nil)
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
-        guard let selectedImage = info[.originalImage] as? UIImage else {
-           
-            return
-       }
-        
-        UserViewModel().uploadImageProfile(uiImage: selectedImage,completed: { success in
-            if success {
-                self.initializeProfile()
-            }
-        })
-        
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    func gallery()
-    {
-        let myPickerControllerGallery = UIImagePickerController()
-        myPickerControllerGallery.delegate = self
-        myPickerControllerGallery.sourceType = UIImagePickerController.SourceType.photoLibrary
-        myPickerControllerGallery.allowsEditing = true
-        self.present(myPickerControllerGallery, animated: true, completion: nil)
     }
     
     @IBAction func parkingHistory(_ sender: Any) {
