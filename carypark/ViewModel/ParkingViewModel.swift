@@ -105,8 +105,6 @@ class ParkingViewModel {
                     "_id": parking._id!,
                     "adresse": parking.adresse!,
                     "nbrPlace": parking.nbrPlace!,
-                    "longitude": parking.longitude!,
-                    "latitude": parking.latitude!,
                     "prix": parking.prix!
                    ])
             .validate(statusCode: 200..<300)

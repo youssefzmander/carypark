@@ -33,16 +33,17 @@ class GuardianIncomingRides: UIViewController, UITableViewDataSource, UITableVie
         let personNameLabel = contentView?.viewWithTag(5) as! UILabel
         let personEmailLabel = contentView?.viewWithTag(6) as! UILabel
         let personPhoneLabel = contentView?.viewWithTag(7) as! UILabel
+        let carNumberLabel = contentView?.viewWithTag(8) as! UILabel
         
-        let dateLabel = contentView?.viewWithTag(8) as! UILabel
+        let dateLabel = contentView?.viewWithTag(9) as! UILabel
         
-        let checkInTimeLabel = contentView?.viewWithTag(9) as! UILabel
-        let checkOutTimeLabel = contentView?.viewWithTag(10) as! UILabel
+        let checkInTimeLabel = contentView?.viewWithTag(10) as! UILabel
+        let checkOutTimeLabel = contentView?.viewWithTag(11) as! UILabel
         
-        let disabledParkLabel = contentView?.viewWithTag(11) as! UILabel
-        let specialGuardLabel = contentView?.viewWithTag(12) as! UILabel
+        let disabledParkLabel = contentView?.viewWithTag(12) as! UILabel
+        let specialGuardLabel = contentView?.viewWithTag(13) as! UILabel
         
-        let timeRemainingLabel = contentView?.viewWithTag(13) as! UILabel
+        let timeRemainingLabel = contentView?.viewWithTag(14) as! UILabel
         
         let reservation = reservations[indexPath.row]
         
@@ -61,6 +62,7 @@ class GuardianIncomingRides: UIViewController, UITableViewDataSource, UITableVie
         personNameLabel.text = user?.fullName
         personEmailLabel.text = user?.email
         personPhoneLabel.text = user?.phone
+        carNumberLabel.text = user?.car
         
         dateLabel.text = DateUtils.formatFromDateForDisplayYearMonthDay(date: reservations[indexPath.row].dateEntre!)
         
@@ -111,6 +113,7 @@ class GuardianIncomingRides: UIViewController, UITableViewDataSource, UITableVie
                         reservations.append(reservation)
                     }
                 }
+                reservations.reverse()
                 tableView.reloadData()
             } else {
                 present(Alert.makeAlert(titre: "Error", message: "Could not load history"),animated: true)

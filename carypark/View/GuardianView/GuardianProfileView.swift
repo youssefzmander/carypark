@@ -61,11 +61,11 @@ class GuardianProfileView: UIViewController, SecondModalTransitionListener  {
         self.performSegue(withIdentifier: "logoutSegue", sender:nil)
     }
     
-    @IBAction func parkingHistory(_ sender: Any) {
-        self.tabBarController?.selectedIndex = 4
+    @IBAction func incomingRides(_ sender: Any) {
+        self.tabBarController?.selectedIndex = 2
     }
     
-    @IBAction func incomingRides(_ sender: Any) {
+    @IBAction func parkingHistory(_ sender: Any) {
         self.tabBarController?.selectedIndex = 3
     }
 }

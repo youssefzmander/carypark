@@ -8,7 +8,8 @@
 import Foundation
 import UIKit
 
-class AddParkingView: UIViewController  {
+class EditParkingView: UIViewController  {
+    
     // variables
     var parking : Parking?
     
@@ -23,6 +24,10 @@ class AddParkingView: UIViewController  {
     // life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        addressTF.text = parking?.adresse
+        priceTF.text = String(parking!.prix!)
+        availablePlacesTF.text = String(parking!.nbrPlace!)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -59,7 +64,7 @@ class AddParkingView: UIViewController  {
         parking?.nbrPlace = Int(availablePlacesTF.text!)
         parking?.prix = Float(priceTF.text!)
         
-        ParkingViewModel().addParking(parking: parking!) { success in
+        ParkingViewModel().editParking(parking: parking!) { success in
             if success {
                 let action = UIAlertAction(title: "Proceed", style: .default, handler: { uiAlertAction in
                     self.dismiss(animated: true, completion: nil)
@@ -71,4 +76,12 @@ class AddParkingView: UIViewController  {
         }
     }
     
+    @IBAction func deletePark(_ sender: Any) {
+        self.present(Alert.makeActionAlert(titre: "Warning", message: "Are you sure you want to delete this park", action: UIAlertAction(title: "Yes", style: .destructive, handler: { [self] uiAction in
+            ParkingViewModel().deleteParking(_id: parking?._id) { success in
+                self.present(Alert.makeAlert(titre: "Success", message: "Park deleted"),animated: true)
+                self.dismiss(animated: true, completion: nil)
+            }
+        })),animated: true)
+    }
 }

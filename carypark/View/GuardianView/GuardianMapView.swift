@@ -64,9 +64,12 @@ class GuardianMapView: UIViewController, MKMapViewDelegate, CLLocationManagerDel
     
     // life cycle
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "addParkingSegue"{
+        if segue.identifier == "addParkingSegue" {
             let destination = segue.destination as! AddParkingView
             destination.parking = createdParking
+        } else if segue.identifier == "editParkingSegue" {
+            let destination = segue.destination as! EditParkingView
+            destination.parking = activeParking
         }
     }
     
@@ -174,13 +177,6 @@ class GuardianMapView: UIViewController, MKMapViewDelegate, CLLocationManagerDel
     }
     
     @IBAction func deletePark(_ sender: Any) {
-        self.present(Alert.makeActionAlert(titre: "Warning", message: "Are you sure you want to delete this park", action: UIAlertAction(title: "Yes", style: .destructive, handler: { [self] uiAction in
-            ParkingViewModel().deleteParking(_id: activeParking?._id) { success in
-                self.present(Alert.makeAlert(titre: "Success", message: "Park deleted"),animated: true)
-                self.initializeLocations()
-                self.deleteParkButton.isEnabled = false
-                self.addParkButton.isEnabled = false
-            }
-        })),animated: true)
+        performSegue(withIdentifier: "editParkingSegue", sender: activeParking)
     }
 }

@@ -59,13 +59,13 @@ class ReservationViewModel {
             }
     }
     
-    func getReservation(_id: String?, completed: @escaping (Bool, Reservation?) -> Void ) {
-        AF.request(Constants.serverUrl + "/reservation/",
-                   method: .get,
+    func getReservationById(_id: String?, completed: @escaping (Bool, Reservation?) -> Void ) {
+        AF.request(Constants.serverUrl + "/reservation/by-id",
+                   method: .post,
                    parameters: [
+                    "userFromPark": UserDefaults.standard.string(forKey: "userId")!,
                     "_id": _id!
-                   ],
-                   encoding: JSONEncoding.default)
+                   ])
             .validate(statusCode: 200..<300)
             .validate(contentType: ["application/json"])
             .responseData { response in

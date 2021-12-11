@@ -34,6 +34,16 @@
 				<string>tn.esprit.carypark.payments</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>espritCaryparkCustomUrl</string>
+			</array>
+			<key>CFBundleURLName</key>
+			<string>com.esprit.carypark.customUrl</string>
+		</dict>
 	</array>
 	<key>FacebookAppID</key>
 	<string>637625473914515</string>

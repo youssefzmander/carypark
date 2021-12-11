@@ -15,19 +15,20 @@ class VerifAccountView: UIViewController {
     var user : User?
     
     // life cycle
-    override func viewDidLoad() {
+    override func viewDidLoad() {       
         super.viewDidLoad()
+        
+   
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
-        let loginManager = LoginManager()
-        loginManager.logOut()
-        
         checkUser()
     }
     
     func checkUser(){
+        
+        let loginManager = LoginManager()
+        loginManager.logOut()
         
         let token = UserDefaults.standard.string(forKey: "userToken")
         

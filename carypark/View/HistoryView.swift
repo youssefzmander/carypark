@@ -12,6 +12,7 @@ class HistoryView: UIViewController, UITableViewDataSource, UITableViewDelegate 
     
     // variables
     var reservations : [Reservation] = []
+    var currentReservationId: String?
     
     // iboutlets
     @IBOutlet weak var tableView: UITableView!
@@ -87,8 +88,21 @@ class HistoryView: UIViewController, UITableViewDataSource, UITableViewDelegate 
         return mCell!
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        currentReservationId = reservations[indexPath.row]._id
+        performSegue(withIdentifier: "qrCodeSegue", sender: currentReservationId)
+    }
+    
     
     // life cycle
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "qrCodeSegue"{
+            let destination = segue.destination as! GuardianQRcodeView
+            destination.idReservation = currentReservationId
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -102,6 +116,7 @@ class HistoryView: UIViewController, UITableViewDataSource, UITableViewDelegate 
         ReservationViewModel().getMyReservationsAsNormal(completed: { success, reservationsFromRep in
             if success {
                 self.reservations = reservationsFromRep!
+                self.reservations.reverse()
                 self.tableView.reloadData()
             } else {
                 self.present(Alert.makeAlert(titre: "Error", message: "Could not load history"),animated: true)

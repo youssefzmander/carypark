@@ -33,7 +33,7 @@ class ReservationView: UIViewController {
     /// secret : EBL5LdsEDkKaJBC9xkTi8kV6WMVkVdExgGCVfdf6ja42c9R8LF-wIWAx52-3vKDG-tfbNvpYpYJ8RGqA
     /// tokenation key : sandbox_bn3zhb5z_vg22v8n96nzczksp
 
-    // Paypal sandbox seller account
+    // Paypal sandbox buyer account
     /// email : sb-pylt99012791@personal.example.com
     /// password : 1?kg&ARk
     

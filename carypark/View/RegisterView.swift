@@ -16,6 +16,7 @@ class RegisterView: UIViewController {
     // iboutlets
     @IBOutlet weak var fullNameTF: UITextField!
     @IBOutlet weak var emailTF: UITextField!
+    @IBOutlet weak var carNumberTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var passwordConfirmationTF: UITextField!
     @IBOutlet weak var roleSwitch: UISwitch!
@@ -65,7 +66,7 @@ class RegisterView: UIViewController {
     // actions
     @IBAction func register(_ sender: Any) {
         
-        if (fullNameTF.text!.isEmpty || emailTF.text!.isEmpty || passwordTF.text!.isEmpty || passwordConfirmationTF.text!.isEmpty){
+        if (fullNameTF.text!.isEmpty || emailTF.text!.isEmpty || passwordTF.text!.isEmpty || passwordConfirmationTF.text!.isEmpty || carNumberTF.text!.isEmpty){
             self.present(Alert.makeAlert(titre: "Warning", message: "You must to fill all the fields"), animated: true)
             return
         }

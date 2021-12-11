@@ -45,7 +45,8 @@ class UserViewModel {
                     "phone": user.phone!,
                     "email": user.email!,
                     "password": user.password!,
-                    "role": user.role!
+                    "role": user.role!,
+                    "car": user.car!
                    ])
             .validate(statusCode: 200..<300)
             .validate(contentType: ["application/json"])
@@ -98,6 +99,7 @@ class UserViewModel {
                 case .success:
                     let jsonData = JSON(response.data!)
                     let user = self.makeUser(jsonItem: jsonData["user"])
+                    print(user)
                     completed(true, user)
                 case let .failure(error):
                     debugPrint(error)
@@ -196,7 +198,8 @@ class UserViewModel {
                     "phone": user.phone!,
                     "email": user.email!,
                     "password": user.password!,
-                    "role": user.role!
+                    "role": user.role!,
+                    "car": user.car!
                    ])
             .response { response in
                 switch response.result {
