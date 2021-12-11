@@ -2079,6 +2079,7 @@
                         <outlet property="parkingLocationLabel" destination="kS9-3C-4j3" id="oCB-5M-PIS"/>
                         <outlet property="parkingNameLabel" destination="efW-AG-N2k" id="pUS-nO-J3k"/>
                         <outlet property="parkingPriceLabel" destination="401-03-TgY" id="KvQ-Ev-TTu"/>
+                        <outlet property="personImage" destination="WZA-QX-gMK" id="tvb-hu-cbG"/>
                         <outlet property="reservationDateLabel" destination="DA2-Sn-c1m" id="Hr5-1L-dfo"/>
                         <outlet property="timeLabel" destination="Bhq-LH-OiJ" id="nTw-sf-6IQ"/>
                     </connections>

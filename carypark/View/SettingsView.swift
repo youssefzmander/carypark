@@ -22,6 +22,7 @@ class SettingsView: UIViewController {
         loginManager.logOut()
         
         UserDefaults.standard.set(nil, forKey: "userToken")
+        UserDefaults.standard.set(nil, forKey: "userId")
         self.performSegue(withIdentifier: "logoutSegue", sender:nil)
     }
     

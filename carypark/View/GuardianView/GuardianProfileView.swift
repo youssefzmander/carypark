@@ -58,6 +58,7 @@ class GuardianProfileView: UIViewController, SecondModalTransitionListener  {
         loginManager.logOut()
         
         UserDefaults.standard.set(nil, forKey: "userToken")
+        UserDefaults.standard.set(nil, forKey: "userId")
         self.performSegue(withIdentifier: "logoutSegue", sender:nil)
     }
     

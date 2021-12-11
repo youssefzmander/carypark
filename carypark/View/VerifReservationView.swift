@@ -16,6 +16,7 @@ class VerifReservationView: UIViewController {
     @IBOutlet weak var parkingPriceLabel: UIButton!
     @IBOutlet weak var parkingNameLabel: UILabel!
     @IBOutlet weak var parkingLocationLabel: UILabel!
+    @IBOutlet weak var personImage: UIImageView!
     @IBOutlet weak var incomingPersonLabel: UILabel!
     @IBOutlet weak var incomingPersonEmailLabel: UILabel!
     @IBOutlet weak var incomingPersonePhoneLabel: UILabel!
@@ -30,15 +31,17 @@ class VerifReservationView: UIViewController {
     // lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         if (UserDefaults.standard.string(forKey: "userId") == nil) {
             self.present(Alert.makeSingleActionAlert(titre: "Warning", message: "Please log in", action: UIAlertAction(title: "Ok", style: .default, handler: { UIAlertAction in
                     self.dismiss(animated: true, completion: nil)
             })),animated: true)
         } else {
+            print("- Logged user -")
             initializeView()
         }
-        
     }
     
     // methods
@@ -52,6 +55,13 @@ class VerifReservationView: UIViewController {
                 incomingPersonEmailLabel.text = reservation?.user?.email
                 incomingPersonePhoneLabel.text = reservation?.user?.phone
                 incomingPersonCarLabel.text = reservation?.user?.car
+                
+                if reservation?.user?.photo != nil {
+                    ImageLoader.shared.loadImage(identifier:(reservation?.user?.photo)!, url: "http://localhost:3000/img/"+(reservation?.user?.photo)!, completion: {image in
+                        personImage.image = image
+                    })
+                }
+                
                 reservationDateLabel.text = DateUtils.formatFromDateForDisplayYearMonthDay(date: (reservation?.dateEntre)!)
                 checkInTimeLabel.text = DateUtils.formatFromDateForDisplayHoursMin(date: (reservation?.dateEntre)!)
                 checkOutTimeLabel.text = DateUtils.formatFromDateForDisplayHoursMin(date: (reservation?.dateSortie)!)
@@ -72,7 +82,7 @@ class VerifReservationView: UIViewController {
                 let timeRemaining = DateUtils().secondsToHoursMinutesSeconds(Int(abs(timeRemainingInSeconds!)))
                 timeLabel.text = String(timeRemaining.0) + " Hours and " + String(timeRemaining.1) + " Minutes"
             } else {
-                self.present(Alert.makeSingleActionAlert(titre: "Warning", message: "This reservation is not yours", action: UIAlertAction(title: "Ok", style: .default, handler: { UIAlertAction in
+                self.present(Alert.makeSingleActionAlert(titre: "Warning", message: "This reservation is not for you", action: UIAlertAction(title: "Ok", style: .default, handler: { UIAlertAction in
                         self.dismiss(animated: true, completion: nil)
                 })),animated: true)
             }

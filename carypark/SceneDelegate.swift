@@ -61,16 +61,29 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 let storyboard = UIStoryboard(name: "Main", bundle: nil);
                 let viewController: VerifReservationView = storyboard.instantiateViewController(withIdentifier: "reservationFromUrl") as! VerifReservationView
                 viewController.idReservation = idReservation
-          
-                let currentView = self.window?.rootViewController?.presentedViewController
                 
-                currentView!.present(viewController, animated: true, completion: nil)
+                if let topViewController = UIApplication.getTopViewController() {
+                    topViewController.present(viewController, animated: true, completion: nil)
+                }
             }
         }
-        
-        
-        
     }
     
 }
 
+extension UIApplication {
+
+    class func getTopViewController(base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+
+        if let nav = base as? UINavigationController {
+            return getTopViewController(base: nav.visibleViewController)
+
+        } else if let tab = base as? UITabBarController, let selected = tab.selectedViewController {
+            return getTopViewController(base: selected)
+
+        } else if let presented = base?.presentedViewController {
+            return getTopViewController(base: presented)
+        }
+        return base
+    }
+}
