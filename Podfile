@@ -17,5 +17,6 @@ target 'carypark' do
   pod 'GoogleSignIn'
   pod 'Braintree', '~> 4.22.0'
   pod 'FBSDKLoginKit'
+  pod 'AppCenter'
 
 end
