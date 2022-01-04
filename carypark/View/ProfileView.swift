@@ -133,7 +133,7 @@ class ProfileView: UIViewController, ModalDelegate, UIImagePickerControllerDeleg
     // actions
     @IBAction func confirmChanges(_ sender: Any) {
         
-        if fullNameTF.text!.isEmpty || phoneTF.text!.isEmpty || carNumberTF.text!.isEmpty {
+        if fullNameTF.text!.isEmpty || phoneTF.text!.isEmpty /*|| carNumberTF.text!.isEmpty*/ {
             self.present(Alert.makeAlert(titre: "Warning", message: "Please fill all the fields"), animated: true)
             return
         }
@@ -148,11 +148,11 @@ class ProfileView: UIViewController, ModalDelegate, UIImagePickerControllerDeleg
             return
         }
         
-        if !(user?.role == "ParkOwner"){
+        /*if !(user?.role == "ParkOwner"){
             if (carNumberTF.text?.contains("TUN") == false){
                 self.present(Alert.makeAlert(titre: "Warning", message: "Please type your car number correctly"), animated: true)
             }
-        }
+        }*/
         
         //user?.email = emailTF.text
         user?.fullName = fullNameTF.text

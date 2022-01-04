@@ -109,7 +109,7 @@ class GuardianIncomingRides: UIViewController, UITableViewDataSource, UITableVie
                     
                     print(dateDiff)
                     
-                    if dateDiff >= 0 {
+                    if dateDiff <= 0 {
                         reservations.append(reservation)
                     }
                 }
