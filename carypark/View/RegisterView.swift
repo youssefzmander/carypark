@@ -16,6 +16,7 @@ class RegisterView: UIViewController {
     // iboutlets
     @IBOutlet weak var fullNameTF: UITextField!
     @IBOutlet weak var emailTF: UITextField!
+    @IBOutlet weak var carNumberTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var passwordConfirmationTF: UITextField!
     @IBOutlet weak var roleSwitch: UISwitch!
@@ -65,8 +66,22 @@ class RegisterView: UIViewController {
     // actions
     @IBAction func register(_ sender: Any) {
         
-        if (emailTF.text!.isEmpty || passwordTF.text!.isEmpty || passwordConfirmationTF.text!.isEmpty){
+        if (fullNameTF.text!.isEmpty || emailTF.text!.isEmpty || passwordTF.text!.isEmpty || passwordConfirmationTF.text!.isEmpty || carNumberTF.text!.isEmpty){
             self.present(Alert.makeAlert(titre: "Warning", message: "You must to fill all the fields"), animated: true)
+            return
+        }
+        
+        if (emailTF.text?.contains("@") == false){
+            self.present(Alert.makeAlert(titre: "Warning", message: "Please type your email correctly"), animated: true)
+        }
+        
+        if (passwordTF.text!.count < 8 ){
+            self.present(Alert.makeAlert(titre: "Warning", message: "Password should be have at least 8 characters"), animated: true)
+            return
+        }
+        
+        if (!NSPredicate(format:"SELF MATCHES %@", ".*[A-Z]+.*").evaluate(with: passwordTF.text!)){
+            self.present(Alert.makeAlert(titre: "Warning", message: "Password should have at least one capital letter"), animated: true)
             return
         }
         

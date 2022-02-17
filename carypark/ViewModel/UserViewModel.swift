@@ -11,6 +11,30 @@ import UIKit.UIImage
 
 class UserViewModel {
     
+    func uploadImageProfile( uiImage: UIImage, completed: @escaping (Bool) -> Void) {
+        AF.upload(multipartFormData: { multipartFormData in
+            multipartFormData.append(uiImage.jpegData(compressionQuality: 0.5)!, withName: "image" , fileName: "image.jpeg", mimeType: "image/jpeg")
+            
+            for (key, value) in ["user" : UserDefaults.standard.string(forKey: "userId")] {
+                multipartFormData.append((value!.data(using: .utf8))!, withName: key)
+            }
+            
+        },to: Constants.serverUrl + "/user/editProfilePic",
+                  method: .post)
+            .validate(statusCode: 200..<300)
+            .validate(contentType: ["application/json"])
+            .responseData { response in
+                switch response.result {
+                case .success:
+                    print("Success")
+                    completed(true)
+                case let .failure(error):
+                    completed(false)
+                    print(error)
+                }
+            }
+    }
+    
     func signUp(user: User, completed: @escaping (Bool) -> Void ) {
         print(user)
         
@@ -21,7 +45,8 @@ class UserViewModel {
                     "phone": user.phone!,
                     "email": user.email!,
                     "password": user.password!,
-                    "role": user.role!
+                    "role": user.role!,
+                    "car": user.car!
                    ])
             .validate(statusCode: 200..<300)
             .validate(contentType: ["application/json"])
@@ -53,6 +78,7 @@ class UserViewModel {
                     let jsonData = JSON(response.data!)
                     let user = self.makeUser(jsonItem: jsonData["user"])
                     UserDefaults.standard.setValue(jsonData["token"].stringValue, forKey: "userToken")
+                    UserDefaults.standard.setValue(user._id, forKey: "userId")
                     completed(true, user)
                 case let .failure(error):
                     debugPrint(error)
@@ -73,6 +99,7 @@ class UserViewModel {
                 case .success:
                     let jsonData = JSON(response.data!)
                     let user = self.makeUser(jsonItem: jsonData["user"])
+                    print(user)
                     completed(true, user)
                 case let .failure(error):
                     debugPrint(error)
@@ -81,10 +108,10 @@ class UserViewModel {
             }
     }
     
-    func loginWithSocialApp(email: String, name: String, completed: @escaping (Bool, User?) -> Void ) {
+    func loginWithSocialApp(email: String, name: String, role : String, completed: @escaping (Bool, User?) -> Void ) {
         AF.request(Constants.serverUrl + "/user/loginWithSocialApp",
                    method: .post,
-                   parameters: ["email": email, "name": name],
+                   parameters: ["email": email, "name": name, "role": role ],
                    encoding: JSONEncoding.default)
             .validate(statusCode: 200..<300)
             .validate(contentType: ["application/json"])
@@ -96,6 +123,8 @@ class UserViewModel {
                     
                     print("this is the new token value : " + jsonData["token"].stringValue)
                     UserDefaults.standard.setValue(jsonData["token"].stringValue, forKey: "userToken")
+                    UserDefaults.standard.setValue(user._id, forKey: "userId")
+                    
                     completed(true, user)
                 case let .failure(error):
                     debugPrint(error)
@@ -169,7 +198,8 @@ class UserViewModel {
                     "phone": user.phone!,
                     "email": user.email!,
                     "password": user.password!,
-                    "role": user.role!
+                    "role": user.role!,
+                    "car": user.car!
                    ])
             .response { response in
                 switch response.result {
@@ -194,6 +224,7 @@ class UserViewModel {
             address: jsonItem["address"].stringValue,
             phone: jsonItem["phone"].stringValue,
             role: jsonItem["role"].stringValue,
+            photo: jsonItem["photo"].stringValue,
             isVerified: jsonItem["isVerified"].boolValue
         )
     }

@@ -9,78 +9,170 @@ import Foundation
 import UIKit
 import FBSDKLoginKit
 
-class ProfileView: UIViewController {
+protocol ModalDelegate {
+    func initProfileFromEdit()
+}
 
+class ProfileView: UIViewController, ModalDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+    
     // variables
     let token = UserDefaults.standard.string(forKey: "userToken")!
     var user : User?
     
     // iboutlets
-    @IBOutlet weak var fullNameLabel: UILabel!
-    @IBOutlet weak var roleLabel: UILabel!
-    @IBOutlet weak var emailLabel: UILabel!
-    @IBOutlet weak var phoneLabel: UILabel!
+    @IBOutlet weak var fullNameTF: UITextField!
+    @IBOutlet weak var emailTF: UITextField!
+    @IBOutlet weak var phoneTF: UITextField!
+    @IBOutlet weak var CarNumberLabel: UILabel!
+    @IBOutlet weak var carNumberTF: UITextField!
+    @IBOutlet weak var imageUser: UIImageView!
     
-    // life cycle
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "editProfileSegue" {
-            /*let controller = segue.destinationViewController as! ResultViewController
-            controller.match = self.match*/
-            
-            let destination = segue.destination as! EditProfileView
-            destination.user = user
-        }
+    // protocols
+    func initProfileFromEdit() {
+        initializeProfile()
     }
     
+    // life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        emailTF.isEnabled = false
+     
         initializeProfile()
     }
-
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        SecondModalTransitionMediator.instance.sendPopoverDismissed(modelChanged: true)
+    }
+    
     // methods
     func initializeProfile() {
         print("initializing profile")
-        UserViewModel().getUserFromToken(userToken: token, completed: { success, user in
+        UserViewModel().getUserFromToken(userToken: token, completed: { [self] success, result in
             if success {
-                self.fullNameLabel.text = user?.fullName
-                self.roleLabel.text = user?.role
-                self.emailLabel.text = user?.email
-                self.phoneLabel.text = user?.phone
+                user = result
+                fullNameTF.text = user?.fullName
+                emailTF.text = user?.email
+                phoneTF.text = user?.phone
+                
+                if user?.role == "NormalUser" {
+                    carNumberTF.text = user?.car
+                    carNumberTF.isHidden = false
+                    CarNumberLabel.isHidden = false
+                }else{
+                    carNumberTF.isHidden = true
+                    CarNumberLabel.isHidden = true
+                }
+                
+                if user?.photo != nil {
+                    ImageLoader.shared.loadImage(identifier:(user?.photo)!, url: "http://localhost:3000/img/"+(user?.photo)!, completion: {image in
+                        imageUser.image = image
+                    })
+                }
+                
             } else {
-                self.present(Alert.makeAlert(titre: "Error", message: "Could not verify token"), animated: true
+                present(Alert.makeAlert(titre: "Error", message: "Could not verify token"), animated: true
                 )
             }
         })
     }
     
-    // actions
-    @IBAction func logout(_ sender: Any) {
-        print("logging out")
-        
-        let loginManager = LoginManager()
-        loginManager.logOut()
-        
-        UserDefaults.standard.set(nil, forKey: "userToken")
-        self.performSegue(withIdentifier: "logoutSegue", sender: nil)
+    @IBAction func changePhoto(_ sender: Any) {
+        showActionSheet()
     }
     
-    @IBAction func editProfil(_ sender: Any) {
+    func showActionSheet(){
         
-        if ((UserDefaults.standard.string(forKey: "userToken")) != nil){
-            UserViewModel().getUserFromToken(userToken: token, completed: { success, user in
-                self.user = user
-                if success {
-                    self.performSegue(withIdentifier: "editProfileSegue", sender: user)
-                } else {
-                    self.present(Alert.makeAlert(titre: "Error", message: "Could not verify token"), animated: true
-                    )
-                }
-            })
+        let actionSheetController: UIAlertController = UIAlertController(title: NSLocalizedString("Upload Image", comment: ""), message: nil, preferredStyle: .actionSheet)
+        actionSheetController.view.tintColor = UIColor.black
+        let cancelActionButton: UIAlertAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { action -> Void in
+            print("Cancel")
         }
+        actionSheetController.addAction(cancelActionButton)
+        
+        let saveActionButton: UIAlertAction = UIAlertAction(title: NSLocalizedString("Take Photo", comment: ""), style: .default)
+        { action -> Void in
+            //self.camera()
+        }
+        actionSheetController.addAction(saveActionButton)
+        
+        let deleteActionButton: UIAlertAction = UIAlertAction(title: NSLocalizedString("Choose From Gallery", comment: ""), style: .default)
+        { action -> Void in
+            self.gallery()
+        }
+        
+        actionSheetController.addAction(deleteActionButton)
+        self.present(actionSheetController, animated: true, completion: nil)
     }
     
-    @IBAction func reloadProfile(_ sender: Any) {
-        initializeProfile()
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        guard let selectedImage = info[.originalImage] as? UIImage else {
+            
+            return
+        }
+        
+        UserViewModel().uploadImageProfile(uiImage: selectedImage,completed: { success in
+            if success {
+                self.initializeProfile()
+            }
+        })
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func gallery()
+    {
+        let myPickerControllerGallery = UIImagePickerController()
+        myPickerControllerGallery.delegate = self
+        myPickerControllerGallery.sourceType = UIImagePickerController.SourceType.photoLibrary
+        myPickerControllerGallery.allowsEditing = true
+        self.present(myPickerControllerGallery, animated: true, completion: nil)
+    }
+    
+    // actions
+    @IBAction func confirmChanges(_ sender: Any) {
+        
+        if fullNameTF.text!.isEmpty || phoneTF.text!.isEmpty /*|| carNumberTF.text!.isEmpty*/ {
+            self.present(Alert.makeAlert(titre: "Warning", message: "Please fill all the fields"), animated: true)
+            return
+        }
+        
+        if Int(phoneTF.text!) == nil {
+            self.present(Alert.makeAlert(titre: "Warning", message: "Phone should be a number"),animated: true)
+            return
+        }
+        
+        if phoneTF.text?.count != 8 {
+            self.present(Alert.makeAlert(titre: "Warning", message: "Phone should have 8 digits"),animated: true)
+            return
+        }
+        
+        /*if !(user?.role == "ParkOwner"){
+            if (carNumberTF.text?.contains("TUN") == false){
+                self.present(Alert.makeAlert(titre: "Warning", message: "Please type your car number correctly"), animated: true)
+            }
+        }*/
+        
+        //user?.email = emailTF.text
+        user?.fullName = fullNameTF.text
+        user?.phone = phoneTF.text
+        
+        if !(user?.role == "²"){
+            user?.car = carNumberTF.text
+        } else {
+            user?.car = ""
+        }
+        
+        UserViewModel().editProfile(user: user!) { success in
+            if success {
+                let action = UIAlertAction(title: "Proceed", style: .default) { UIAlertAction in
+                    self.dismiss(animated: true, completion: nil)
+                }
+                self.present(Alert.makeSingleActionAlert(titre: "Success", message: "Profile edited successfully", action: action), animated: true)
+            } else {
+                self.present(Alert.makeAlert(titre: "Error", message: "Could not edit your profile"), animated: true)
+            }
+        }
     }
 }

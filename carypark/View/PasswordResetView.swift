@@ -63,6 +63,16 @@ class PasswordResetView: UIViewController {
             return
         }
         
+        if (passwordTF.text!.count < 8 ){
+            self.present(Alert.makeAlert(titre: "Warning", message: "Password should be have at least 8 characters"), animated: true)
+            return
+        }
+        
+        if (!NSPredicate(format:"SELF MATCHES %@", ".*[A-Z]+.*").evaluate(with: passwordTF.text!)){
+            self.present(Alert.makeAlert(titre: "Warning", message: "Password should have at least one capital letter"), animated: true)
+            return
+        }
+        
         startSpinner()
         
         UserViewModel().editPassword(email: email!, newPassword: passwordTF.text!, completed: { success in

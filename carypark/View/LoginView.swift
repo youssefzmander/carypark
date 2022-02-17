@@ -16,7 +16,7 @@ class LoginView: UIViewController {
     // variables
     var email : String?
     let spinner = SpinnerViewController()
-    let googleSignInConfig = GIDConfiguration.init(clientID: "103144844343-0fguksu88qq9q0bnngr4l7j2ab3u030a.apps.googleusercontent.com")
+    let googleSignInConfig = GIDConfiguration.init(clientID: "103144844343-plp62tnnhgvs3gni3d9ifdv7aole9j05.apps.googleusercontent.com")
     
     let googleLoginButton = GIDSignInButton()
     let facebookLoginButton = FBLoginButton(frame: .zero, permissions: [.publicProfile,.email])
@@ -24,22 +24,22 @@ class LoginView: UIViewController {
     // iboutlets
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
-    
-    //@IBOutlet weak var googleLoginProviderStackView: UIStackView! // Google login button
+    @IBOutlet weak var ownerOfParkSwitch: UISwitch!
+    @IBOutlet weak var googleLoginProviderStackView: UIStackView! // Google login button
     @IBOutlet weak var facebookLoginProviderStackView: UIStackView! // Facebook login button
     
     // protocols
     
     
     // life cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //googleLoginProviderStackView.addSubview(googleLoginButton)
+        googleLoginProviderStackView.addSubview(googleLoginButton)
         facebookLoginProviderStackView.addSubview(facebookLoginButton)
         
         googleLoginButton.addTarget(self, action: #selector(googleSignIn), for: .touchUpInside)
-        facebookLoginButton.addTarget(self, action: #selector(facebookSignIn), for: .touchUpInside)
         
         facebookLoginButton.permissions = ["public_profile", "email"]
         
@@ -64,7 +64,7 @@ class LoginView: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        /*googleLoginButton.frame = CGRect(x: 0, y: 0, width: googleLoginProviderStackView.frame.width, height: googleLoginProviderStackView.frame.height)*/
+        googleLoginButton.frame = CGRect(x: 0, y: 0, width: googleLoginProviderStackView.frame.width, height: googleLoginProviderStackView.frame.height)
         facebookLoginButton.frame = CGRect(x: 2.5, y: 4, width: facebookLoginProviderStackView.frame.width - 5, height: facebookLoginProviderStackView.frame.height - 10)
         
     }
@@ -122,7 +122,6 @@ class LoginView: UIViewController {
     
     @objc func googleSignIn() {
         
-        startSpinner()
         
         GIDSignIn.sharedInstance.signIn(with: googleSignInConfig, presenting: self) { [self] user, error in
             guard error == nil else { return }
@@ -137,14 +136,19 @@ class LoginView: UIViewController {
         }
     }
     
-    @objc func facebookSignIn(_ loginButton: FBLoginButton, didCompleteWith result:
-                              LoginManagerLoginResult?, error: Error?) {
-       
-    }
-    
-    func loginWithSocialMedia(email: String?, name: String?, socialMediaName: String) {
-        startSpinner()
-        UserViewModel().loginWithSocialApp(email: email!, name: name!, completed: { success, user in
+    func loginWithSocialMedia(email: String?, name: String?,
+                              socialMediaName: String) {
+        
+        let role : String?
+        if ownerOfParkSwitch.isOn {
+            role = "ParkOwner"
+        } else {
+            role = "NormalUser"
+        }
+        
+        self.startSpinner()
+        
+        UserViewModel().loginWithSocialApp(email: email!, name: name!, role: role!, completed: { success, user in
             if success {
                 self.proceedToLogin(user: user!)
             } else {
@@ -167,9 +171,9 @@ class LoginView: UIViewController {
     
     func proceedToLogin(user: User) {
         if (user.role == "ParkOwner") {
-            self.performSegue(withIdentifier: "loginSegue", sender: nil)
-        } else if (user.role == "Student"){
-            self.performSegue(withIdentifier: "loginSegue", sender: nil)
+            self.performSegue(withIdentifier: "loginAsParkOwnerSegue", sender: nil)
+        } else if (user.role == "NormalUser"){
+            self.performSegue(withIdentifier: "loginAsNormalUserSegue", sender: nil)
         } else {
             self.present(Alert.makeAlert(titre: "Error", message: "Invalid account"), animated: true)
         }

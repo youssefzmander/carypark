@@ -11,6 +11,7 @@ import UIKit
 class EditProfileView: UIViewController {
     
     // variables
+    var delegate: ModalDelegate? 
     var user : User?
     
     // iboutlets
@@ -23,6 +24,11 @@ class EditProfileView: UIViewController {
     
     
     // life cycle
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as! ProfileView
+        destination.user = user
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,24 +42,6 @@ class EditProfileView: UIViewController {
     
     // methods
     
-    // actions
-    @IBAction func confirmChanges(_ sender: Any) {
-     
-        //user?.email = emailTF.text
-        user?.fullName = nameTF.text
-        user?.phone = phoneTF.text
-        
-        
-        UserViewModel().editProfile(user: user!) { success in
-            if success {
-                let action = UIAlertAction(title: "Proceed", style: .default) { UIAlertAction in
-                    self.dismiss(animated: true, completion: nil)
-                }
-                self.present(Alert.makeSingleActionAlert(titre: "Success", message: "Profile edited successfully", action: action), animated: true)
-            } else {
-                self.present(Alert.makeAlert(titre: "Error", message: "Could not edit your profile"), animated: true)
-            }
-        }
-    }
+  
     
 }

@@ -15,25 +15,20 @@ class VerifAccountView: UIViewController {
     var user : User?
     
     // life cycle
-    override func viewDidLoad() {
+    override func viewDidLoad() {       
         super.viewDidLoad()
         
-        let spinner = SpinnerViewController()
-        addChild(spinner)
-        spinner.view.frame = view.frame
-        view.addSubview(spinner.view)
-        spinner.didMove(toParent: self)
+   
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
-        let loginManager = LoginManager()
-        loginManager.logOut()
-        
         checkUser()
     }
     
     func checkUser(){
+        
+        let loginManager = LoginManager()
+        loginManager.logOut()
         
         let token = UserDefaults.standard.string(forKey: "userToken")
         
@@ -41,7 +36,7 @@ class VerifAccountView: UIViewController {
             UserViewModel().getUserFromToken(userToken: token!) { success, user in
                 if success {
                     if (user!.role == "ParkOwner") {
-                        self.performSegue(withIdentifier: "logInAsNormalUserSegue", sender: nil)
+                        self.performSegue(withIdentifier: "logInAsSecurityGuardSegue", sender: nil)
                     } else if (user!.role == "NormalUser") {
                         self.performSegue(withIdentifier: "logInAsNormalUserSegue", sender: nil)
                     }

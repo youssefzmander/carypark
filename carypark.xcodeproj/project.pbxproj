@@ -7,6 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		103B5770275E6CB700D2B117 /* GuardianIncomingRidesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103B576F275E6CB700D2B117 /* GuardianIncomingRidesView.swift */; };
+		103B5772275E6DE500D2B117 /* GuardianHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103B5771275E6DE500D2B117 /* GuardianHistoryView.swift */; };
+		10674EB82764C1F2005365C7 /* EditParkingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10674EB72764C1F2005365C7 /* EditParkingView.swift */; };
+		10674EBA2764E10C005365C7 /* VerifReservationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10674EB92764E10C005365C7 /* VerifReservationView.swift */; };
+		10AAE5D5275EF25100DF3A13 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AAE5D4275EF25100DF3A13 /* ImageLoader.swift */; };
+		10E6EEF72763913D00AA5416 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E6EEF62763913D00AA5416 /* DateUtils.swift */; };
+		10E6EEF92763CB6000AA5416 /* ModalTransitionMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E6EEF82763CB6000AA5416 /* ModalTransitionMediator.swift */; };
+		10E6EEFB2763D5B800AA5416 /* SecondModalTransitionMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E6EEFA2763D5B800AA5416 /* SecondModalTransitionMediator.swift */; };
+		14AD2544275A939B0032AA51 /* GuardianProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AD2543275A939B0032AA51 /* GuardianProfileView.swift */; };
+		14AD2546275A9B3F0032AA51 /* ReservationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AD2545275A9B3F0032AA51 /* ReservationView.swift */; };
+		14AD2548275AA5F60032AA51 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AD2547275AA5F60032AA51 /* HistoryView.swift */; };
+		14AD254A275AD1CF0032AA51 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AD2549275AD1CF0032AA51 /* Extensions.swift */; };
+		14AD254C275B6E680032AA51 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AD254B275B6E680032AA51 /* TabBarController.swift */; };
+		14AD254E275B73480032AA51 /* GuardianQRcodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AD254D275B73480032AA51 /* GuardianQRcodeView.swift */; };
+		8D688EBB2758E74F00872C5E /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D688EBA2758E74E00872C5E /* MapView.swift */; };
+		8D688EBD2758EDF700872C5E /* ParkingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D688EBC2758EDF700872C5E /* ParkingViewModel.swift */; };
+		8D688EBF2758EE1A00872C5E /* Parking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D688EBE2758EE1A00872C5E /* Parking.swift */; };
+		8D688EC32758EE6400872C5E /* ReservationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D688EC22758EE6400872C5E /* ReservationViewModel.swift */; };
+		8D688EC72758EEAE00872C5E /* Reservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D688EC62758EEAE00872C5E /* Reservation.swift */; };
+		8D688EC9275907DD00872C5E /* PinAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D688EC8275907DD00872C5E /* PinAnnotation.swift */; };
+		8D688ECB27593EAF00872C5E /* ParkingDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D688ECA27593EAF00872C5E /* ParkingDetailsView.swift */; };
 		8DA6147B275789F200EFE1EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA6147A275789F200EFE1EB /* AppDelegate.swift */; };
 		8DA6147D275789F200EFE1EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA6147C275789F200EFE1EB /* SceneDelegate.swift */; };
 		8DA61484275789F400EFE1EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DA61483275789F400EFE1EB /* Assets.xcassets */; };
@@ -26,13 +47,37 @@
 		8DA614AF27578B5700EFE1EB /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA614A627578B5700EFE1EB /* ProfileView.swift */; };
 		8DA614B027578B5700EFE1EB /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA614A727578B5700EFE1EB /* PaymentView.swift */; };
 		8DA614B227578B5B00EFE1EB /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA614B127578B5B00EFE1EB /* UserViewModel.swift */; };
+		8DD55393275A607700392CAD /* GuardianMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD55392275A607700392CAD /* GuardianMapView.swift */; };
+		8DD55395275A60AF00392CAD /* AddParkingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD55394275A60AF00392CAD /* AddParkingView.swift */; };
+		8DFC6A6B2757DB0600DA0175 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFC6A6A2757DB0600DA0175 /* SettingsView.swift */; };
 		B0D6CC9A404C0733FC42DF45 /* Pods_carypark.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 866FEDDDCEB6B217A9F0A30D /* Pods_carypark.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		02666E7841450AFEC1C95FE5 /* Pods-carypark.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-carypark.release.xcconfig"; path = "Target Support Files/Pods-carypark/Pods-carypark.release.xcconfig"; sourceTree = "<group>"; };
+		103B576F275E6CB700D2B117 /* GuardianIncomingRidesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuardianIncomingRidesView.swift; sourceTree = "<group>"; };
+		103B5771275E6DE500D2B117 /* GuardianHistoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuardianHistoryView.swift; sourceTree = "<group>"; };
+		10674EB72764C1F2005365C7 /* EditParkingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditParkingView.swift; sourceTree = "<group>"; };
+		10674EB92764E10C005365C7 /* VerifReservationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifReservationView.swift; sourceTree = "<group>"; };
+		10AAE5D4275EF25100DF3A13 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		10E6EEF62763913D00AA5416 /* DateUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
+		10E6EEF82763CB6000AA5416 /* ModalTransitionMediator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalTransitionMediator.swift; sourceTree = "<group>"; };
+		10E6EEFA2763D5B800AA5416 /* SecondModalTransitionMediator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondModalTransitionMediator.swift; sourceTree = "<group>"; };
+		14AD2543275A939B0032AA51 /* GuardianProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuardianProfileView.swift; sourceTree = "<group>"; };
+		14AD2545275A9B3F0032AA51 /* ReservationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationView.swift; sourceTree = "<group>"; };
+		14AD2547275AA5F60032AA51 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		14AD2549275AD1CF0032AA51 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		14AD254B275B6E680032AA51 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		14AD254D275B73480032AA51 /* GuardianQRcodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuardianQRcodeView.swift; sourceTree = "<group>"; };
 		2AC2DB107A6BB5ABB0D152B2 /* Pods-carypark.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-carypark.debug.xcconfig"; path = "Target Support Files/Pods-carypark/Pods-carypark.debug.xcconfig"; sourceTree = "<group>"; };
 		866FEDDDCEB6B217A9F0A30D /* Pods_carypark.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_carypark.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D688EBA2758E74E00872C5E /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		8D688EBC2758EDF700872C5E /* ParkingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingViewModel.swift; sourceTree = "<group>"; };
+		8D688EBE2758EE1A00872C5E /* Parking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parking.swift; sourceTree = "<group>"; };
+		8D688EC22758EE6400872C5E /* ReservationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationViewModel.swift; sourceTree = "<group>"; };
+		8D688EC62758EEAE00872C5E /* Reservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reservation.swift; sourceTree = "<group>"; };
+		8D688EC8275907DD00872C5E /* PinAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinAnnotation.swift; sourceTree = "<group>"; };
+		8D688ECA27593EAF00872C5E /* ParkingDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingDetailsView.swift; sourceTree = "<group>"; };
 		8DA61477275789F200EFE1EB /* carypark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = carypark.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DA6147A275789F200EFE1EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8DA6147C275789F200EFE1EB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -54,6 +99,9 @@
 		8DA614A627578B5700EFE1EB /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		8DA614A727578B5700EFE1EB /* PaymentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
 		8DA614B127578B5B00EFE1EB /* UserViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		8DD55392275A607700392CAD /* GuardianMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuardianMapView.swift; sourceTree = "<group>"; };
+		8DD55394275A60AF00392CAD /* AddParkingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddParkingView.swift; sourceTree = "<group>"; };
+		8DFC6A6A2757DB0600DA0175 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +172,8 @@
 			isa = PBXGroup;
 			children = (
 				8DA614B127578B5B00EFE1EB /* UserViewModel.swift */,
+				8D688EBC2758EDF700872C5E /* ParkingViewModel.swift */,
+				8D688EC22758EE6400872C5E /* ReservationViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -132,6 +182,8 @@
 			isa = PBXGroup;
 			children = (
 				8DA6149D27578B4A00EFE1EB /* User.swift */,
+				8D688EBE2758EE1A00872C5E /* Parking.swift */,
+				8D688EC62758EEAE00872C5E /* Reservation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -139,15 +191,24 @@
 		8DA6149527578B0E00EFE1EB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				14AD254B275B6E680032AA51 /* TabBarController.swift */,
+				8DD55391275A605400392CAD /* GuardianView */,
+				8DA614A427578B5700EFE1EB /* VerifAccountView.swift */,
+				8DA614A327578B5700EFE1EB /* RegisterView.swift */,
+				8DA6149F27578B5600EFE1EB /* LoginView.swift */,
 				8DA614A527578B5700EFE1EB /* EditProfileView.swift */,
 				8DA614A127578B5600EFE1EB /* ForgotPasswordView.swift */,
-				8DA6149F27578B5600EFE1EB /* LoginView.swift */,
 				8DA614A027578B5600EFE1EB /* PasswordResetView.swift */,
+				8DA614A227578B5600EFE1EB /* ResetCodeView.swift */,
 				8DA614A727578B5700EFE1EB /* PaymentView.swift */,
 				8DA614A627578B5700EFE1EB /* ProfileView.swift */,
-				8DA614A327578B5700EFE1EB /* RegisterView.swift */,
-				8DA614A227578B5600EFE1EB /* ResetCodeView.swift */,
-				8DA614A427578B5700EFE1EB /* VerifAccountView.swift */,
+				8DFC6A6A2757DB0600DA0175 /* SettingsView.swift */,
+				8D688EBA2758E74E00872C5E /* MapView.swift */,
+				8D688ECA27593EAF00872C5E /* ParkingDetailsView.swift */,
+				14AD2545275A9B3F0032AA51 /* ReservationView.swift */,
+				14AD2547275AA5F60032AA51 /* HistoryView.swift */,
+				10674EB72764C1F2005365C7 /* EditParkingView.swift */,
+				10674EB92764E10C005365C7 /* VerifReservationView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -158,8 +219,27 @@
 				8DA6149727578B4400EFE1EB /* Alert.swift */,
 				8DA6149927578B4400EFE1EB /* Constants.swift */,
 				8DA6149827578B4400EFE1EB /* Spinner.swift */,
+				8D688EC8275907DD00872C5E /* PinAnnotation.swift */,
+				14AD2549275AD1CF0032AA51 /* Extensions.swift */,
+				10AAE5D4275EF25100DF3A13 /* ImageLoader.swift */,
+				10E6EEF62763913D00AA5416 /* DateUtils.swift */,
+				10E6EEF82763CB6000AA5416 /* ModalTransitionMediator.swift */,
+				10E6EEFA2763D5B800AA5416 /* SecondModalTransitionMediator.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		8DD55391275A605400392CAD /* GuardianView */ = {
+			isa = PBXGroup;
+			children = (
+				103B576F275E6CB700D2B117 /* GuardianIncomingRidesView.swift */,
+				103B5771275E6DE500D2B117 /* GuardianHistoryView.swift */,
+				8DD55392275A607700392CAD /* GuardianMapView.swift */,
+				8DD55394275A60AF00392CAD /* AddParkingView.swift */,
+				14AD2543275A939B0032AA51 /* GuardianProfileView.swift */,
+				14AD254D275B73480032AA51 /* GuardianQRcodeView.swift */,
+			);
+			path = GuardianView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,18 +360,42 @@
 				8DA614AC27578B5700EFE1EB /* RegisterView.swift in Sources */,
 				8DA614AD27578B5700EFE1EB /* VerifAccountView.swift in Sources */,
 				8DA6149C27578B4400EFE1EB /* Constants.swift in Sources */,
+				14AD2548275AA5F60032AA51 /* HistoryView.swift in Sources */,
+				10674EBA2764E10C005365C7 /* VerifReservationView.swift in Sources */,
 				8DA614A827578B5700EFE1EB /* LoginView.swift in Sources */,
+				103B5770275E6CB700D2B117 /* GuardianIncomingRidesView.swift in Sources */,
+				103B5772275E6DE500D2B117 /* GuardianHistoryView.swift in Sources */,
+				10AAE5D5275EF25100DF3A13 /* ImageLoader.swift in Sources */,
+				8DD55395275A60AF00392CAD /* AddParkingView.swift in Sources */,
 				8DA6149A27578B4400EFE1EB /* Alert.swift in Sources */,
+				8D688ECB27593EAF00872C5E /* ParkingDetailsView.swift in Sources */,
+				8D688EC32758EE6400872C5E /* ReservationViewModel.swift in Sources */,
+				8D688EBF2758EE1A00872C5E /* Parking.swift in Sources */,
+				10674EB82764C1F2005365C7 /* EditParkingView.swift in Sources */,
+				10E6EEF72763913D00AA5416 /* DateUtils.swift in Sources */,
+				14AD2546275A9B3F0032AA51 /* ReservationView.swift in Sources */,
+				8DFC6A6B2757DB0600DA0175 /* SettingsView.swift in Sources */,
+				14AD254C275B6E680032AA51 /* TabBarController.swift in Sources */,
 				8DA614A927578B5700EFE1EB /* PasswordResetView.swift in Sources */,
+				10E6EEF92763CB6000AA5416 /* ModalTransitionMediator.swift in Sources */,
 				8DA6149E27578B4A00EFE1EB /* User.swift in Sources */,
 				8DA6147B275789F200EFE1EB /* AppDelegate.swift in Sources */,
 				8DA6147D275789F200EFE1EB /* SceneDelegate.swift in Sources */,
+				8D688EC72758EEAE00872C5E /* Reservation.swift in Sources */,
 				8DA614B227578B5B00EFE1EB /* UserViewModel.swift in Sources */,
+				14AD2544275A939B0032AA51 /* GuardianProfileView.swift in Sources */,
 				8DA614AA27578B5700EFE1EB /* ForgotPasswordView.swift in Sources */,
+				8D688EC9275907DD00872C5E /* PinAnnotation.swift in Sources */,
 				8DA6149B27578B4400EFE1EB /* Spinner.swift in Sources */,
+				8D688EBB2758E74F00872C5E /* MapView.swift in Sources */,
+				14AD254E275B73480032AA51 /* GuardianQRcodeView.swift in Sources */,
 				8DA614AE27578B5700EFE1EB /* EditProfileView.swift in Sources */,
 				8DA614AF27578B5700EFE1EB /* ProfileView.swift in Sources */,
+				14AD254A275AD1CF0032AA51 /* Extensions.swift in Sources */,
+				8DD55393275A607700392CAD /* GuardianMapView.swift in Sources */,
 				8DA614B027578B5700EFE1EB /* PaymentView.swift in Sources */,
+				10E6EEFB2763D5B800AA5416 /* SecondModalTransitionMediator.swift in Sources */,
+				8D688EBD2758EDF700872C5E /* ParkingViewModel.swift in Sources */,
 				8DA614AB27578B5700EFE1EB /* ResetCodeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -303,6 +407,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "";
+				ASSETCATALOG_COMPILER_APPICON_NAME = "";
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -336,6 +443,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				EXCLUDED_ARCHS = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -357,6 +465,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VALID_ARCH = arm64;
 			};
 			name = Debug;
 		};
@@ -364,6 +473,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "";
+				ASSETCATALOG_COMPILER_APPICON_NAME = "";
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -397,6 +509,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXCLUDED_ARCHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -412,6 +525,7 @@
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCH = arm64;
 			};
 			name = Release;
 		};
@@ -423,6 +537,9 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				EXCLUDED_ARCHS = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = carypark/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -451,6 +568,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = carypark/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
